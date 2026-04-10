@@ -5,7 +5,7 @@ export default function WhatsAppButton() {
     <div className="fixed bottom-5 right-5 z-50 md:bottom-8 md:right-8">
       {/* pulse ring */}
       <span
-        className="animate-wa-pulse absolute inset-0 rounded-full bg-green-400"
+        className="animate-wa-pulse pointer-events-none absolute inset-0 rounded-full bg-green-400"
         aria-hidden="true"
       />
       <a

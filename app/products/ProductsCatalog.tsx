@@ -38,7 +38,7 @@ export default function ProductsCatalog() {
           <div className="flex gap-2 overflow-x-auto pb-0.5">
             <button
               onClick={() => setActiveCategory("all")}
-              className={`shrink-0 rounded-full px-4 py-1.5 text-sm font-medium transition-colors ${
+              className={`shrink-0 cursor-pointer rounded-full px-4 py-1.5 text-sm font-medium transition-colors ${
                 activeCategory === "all"
                   ? "bg-teal-600 text-white"
                   : "bg-slate-100 text-slate-600 hover:bg-slate-200"
@@ -50,7 +50,7 @@ export default function ProductsCatalog() {
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`shrink-0 rounded-full px-4 py-1.5 text-sm font-medium transition-colors ${
+                className={`shrink-0 cursor-pointer rounded-full px-4 py-1.5 text-sm font-medium transition-colors ${
                   activeCategory === cat
                     ? "bg-teal-600 text-white"
                     : "bg-slate-100 text-slate-600 hover:bg-slate-200"

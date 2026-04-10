@@ -44,7 +44,7 @@ export default function ImageGallery({ images, alt, priority = false }: ImageGal
             key={img}
             onClick={() => setActive(i)}
             aria-label={`View image ${i + 1}`}
-            className={`relative h-16 w-16 shrink-0 overflow-hidden rounded-lg border-2 transition-all ${
+            className={`relative h-16 w-16 shrink-0 cursor-pointer overflow-hidden rounded-lg border-2 transition-all ${
               i === active
                 ? "border-teal-500 opacity-100"
                 : "border-transparent opacity-50 hover:opacity-80"
