@@ -16,7 +16,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const product = getProductBySlug(slug);
   if (!product) return {};
-  return { title: product.name, description: product.shortDescription };
+  return {
+    title: product.name,
+    description: product.shortDescription,
+    alternates: {
+      canonical: `https://rajcopyhouse.vercel.app/products/${slug}`,
+    },
+  };
 }
 
 export default async function ProductDetailPage({ params }: Props) {
@@ -28,10 +34,31 @@ export default async function ProductDetailPage({ params }: Props) {
     .filter((p) => p.slug !== product.slug)
     .slice(0, 3);
 
-  const whatsappMessage = `Hi, I'm interested in ${product.name}. Can you share more details and pricing?`;
+  const whatsappMessage = `Hi, I need ${product.name} for a bulk order. Please share pricing and availability.`;
+
+  const productSchema = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: product.name,
+    description: product.description,
+    image: `https://rajcopyhouse.vercel.app${product.image}`,
+    offers: {
+      "@type": "Offer",
+      availability: "https://schema.org/InStock",
+      priceCurrency: "INR",
+      seller: {
+        "@type": "Organization",
+        name: "Raj Copy House",
+      },
+    },
+  };
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
+      />
       {/* Breadcrumb */}
       <div className="bg-white px-4 py-3 sm:px-6">
         <div className="mx-auto flex max-w-6xl items-center gap-2 text-sm text-slate-400">
