@@ -71,7 +71,7 @@ export default function HomePage() {
             </div>
             <h1 className="mb-3 text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">
               One Supplier.<br />
-              <span className="text-teal-400">Everything Your Factory</span> Needs.
+              <span className="text-teal-400">Everything You</span> Need.
             </h1>
             <p className="mb-1 text-sm italic text-slate-500">
               नोटबुक उद्योग का सम्पूर्ण समाधान
