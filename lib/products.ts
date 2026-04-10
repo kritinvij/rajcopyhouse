@@ -122,8 +122,8 @@ export const products: Product[] = [
       { label: "Compatible punch", value: "21-hole (A4), 19-hole (A5), 34-hole (A4 comb)" },
       { label: "Supply", value: "Wholesale / B2B" },
     ],
-    image: "/images/pexels-ohp-sheets.jpeg",
-    images: ["/images/product-all-types.jpeg"],
+    image: "/images/product-ohp-sheet.jpeg",
+    images: ["/images/pexels-ohp-sheets.jpeg", "/images/product-all-types.jpeg"],
     featured: false,
   },
   {

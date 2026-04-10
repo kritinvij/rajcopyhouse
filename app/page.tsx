@@ -1,9 +1,9 @@
+import { Suspense } from "react";
 import Link from "next/link";
-import Image from "next/image";
-import { getFeaturedProducts, categoryLabels, type ProductCategory } from "@/lib/products";
 import AnimateIn from "@/components/AnimateIn";
 import CountUp from "@/components/CountUp";
 import Marquee from "@/components/Marquee";
+import ProductsCatalog from "./products/ProductsCatalog";
 
 type Stat =
   | { display: string; countTo: number; suffix: string; label: string }
@@ -68,57 +68,6 @@ const testimonials = [
   },
 ];
 
-const categories: {
-  category: ProductCategory;
-  label: string;
-  icon: React.ReactNode;
-}[] = [
-  {
-    category: "binding-wires",
-    label: "Binding & Stitching Wires",
-    icon: (
-      <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244" />
-      </svg>
-    ),
-  },
-  {
-    category: "covers",
-    label: "Notebook Covers",
-    icon: (
-      <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" />
-      </svg>
-    ),
-  },
-  {
-    category: "sheets",
-    label: "Ledger & Quality Sheets",
-    icon: (
-      <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
-      </svg>
-    ),
-  },
-  {
-    category: "packaging",
-    label: "Shrink & Packing Materials",
-    icon: (
-      <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="m21 7.5-9-5.25L3 7.5m18 0-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9" />
-      </svg>
-    ),
-  },
-  {
-    category: "complete-kits",
-    label: "Complete Raw Material Kits",
-    icon: (
-      <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6A2.25 2.25 0 0 1 6 3.75h2.25A2.25 2.25 0 0 1 10.5 6v2.25a2.25 2.25 0 0 1-2.25 2.25H6a2.25 2.25 0 0 1-2.25-2.25V6ZM3.75 15.75A2.25 2.25 0 0 1 6 13.5h2.25a2.25 2.25 0 0 1 2.25 2.25V18a2.25 2.25 0 0 1-2.25 2.25H6A2.25 2.25 0 0 1 3.75 18v-2.25ZM13.5 6a2.25 2.25 0 0 1 2.25-2.25H18A2.25 2.25 0 0 1 20.25 6v2.25A2.25 2.25 0 0 1 18 10.5h-2.25a2.25 2.25 0 0 1-2.25-2.25V6ZM13.5 15.75a2.25 2.25 0 0 1 2.25-2.25H18a2.25 2.25 0 0 1 2.25 2.25V18A2.25 2.25 0 0 1 18 20.25h-2.25A2.25 2.25 0 0 1 13.5 18v-2.25Z" />
-      </svg>
-    ),
-  },
-];
 
 const whyPoints = [
   {
@@ -193,8 +142,6 @@ const orderSteps = [
 ];
 
 export default function HomePage() {
-  const featured = getFeaturedProducts();
-
   return (
     <>
       {/* ── Hero ─────────────────────────────────── */}
@@ -324,168 +271,27 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── Product Lines Navigator ───────────────── */}
-      <section className="border-y border-slate-100 bg-white px-4 py-0 sm:px-6">
+
+      {/* ── All Products ─────────────────────────── */}
+      <section className="bg-stone-50 px-4 pb-2 pt-12 sm:px-6">
         <div className="mx-auto max-w-6xl">
           <AnimateIn>
-            <div className="grid divide-y divide-slate-100 sm:grid-cols-5 sm:divide-x sm:divide-y-0">
-              {categories.map((cat, i) => (
-                <Link
-                  key={cat.category}
-                  href={`/products?category=${cat.category}`}
-                  className="group flex flex-col gap-2.5 px-0 py-6 transition-colors sm:px-6 sm:first:pl-0 sm:last:pr-0 hover:bg-transparent"
-                >
-                  <span className="font-mono text-xs text-slate-300">0{i + 1}</span>
-                  <div className="flex h-8 w-8 items-center justify-center text-teal-500 transition-transform duration-200 group-hover:scale-110">
-                    {cat.icon}
-                  </div>
-                  <span className="text-sm font-semibold leading-snug text-slate-800 transition-colors group-hover:text-teal-700">
-                    {cat.label}
-                  </span>
-                  <span className="inline-block text-xs text-slate-400 transition-all group-hover:translate-x-0.5 group-hover:text-teal-500">
-                    View &rarr;
-                  </span>
-                </Link>
-              ))}
-            </div>
+            <h2 className="text-2xl font-bold text-slate-900 sm:text-3xl">Our Products</h2>
+            <p className="mt-1.5 text-slate-500">Filter by category or search for exactly what you need.</p>
           </AnimateIn>
         </div>
       </section>
-
-      {/* ── Featured Products ─────────────────────── */}
-      {featured.length > 0 && (
-        <section className="bg-stone-50 px-4 py-16 sm:px-6 sm:py-20">
-          <div className="mx-auto max-w-6xl">
-            <AnimateIn>
-              <div className="mb-8 flex items-end justify-between">
-                <div>
-                  <h2 className="text-3xl font-bold text-slate-900">Featured Products</h2>
-                  <p className="mt-1.5 text-slate-500">
-                    Most popular raw materials for notebook manufacturers.
-                  </p>
-                </div>
-                <Link
-                  href="/products"
-                  className="hidden text-sm font-medium text-teal-600 transition-colors hover:text-teal-800 sm:block"
-                >
-                  All products &rarr;
-                </Link>
-              </div>
-            </AnimateIn>
-
-            {/* Hero card - first featured product */}
-            {featured[0] && (
-              <AnimateIn>
-                <div className="group mb-5 overflow-hidden rounded-2xl bg-white shadow-sm transition-shadow duration-300 hover:shadow-md">
-                  <div className="grid lg:grid-cols-2">
-                    <Link
-                      href={`/products/${featured[0].slug}`}
-                      className="relative block aspect-[4/3] overflow-hidden bg-slate-100 lg:aspect-auto lg:min-h-[320px]"
-                    >
-                      <Image
-                        src={featured[0].image}
-                        alt={featured[0].name}
-                        fill
-                        className="object-cover transition-transform duration-700 group-hover:scale-105"
-                        sizes="(max-width: 1024px) 100vw, 50vw"
-                        priority
-                      />
-                    </Link>
-                    <div className="flex flex-col justify-center p-8 lg:p-10">
-                      <span className="text-xs font-semibold uppercase tracking-wider text-teal-600">
-                        {categoryLabels[featured[0].category]}
-                      </span>
-                      <Link href={`/products/${featured[0].slug}`}>
-                        <h3 className="mt-2 text-2xl font-bold text-slate-900 transition-colors hover:text-teal-700 lg:text-3xl">
-                          {featured[0].name}
-                        </h3>
-                      </Link>
-                      <p className="mt-3 text-base leading-relaxed text-slate-500">
-                        {featured[0].shortDescription}
-                      </p>
-                      <div className="mt-4 flex flex-wrap gap-2">
-                        {featured[0].specs.slice(0, 2).map((spec) => (
-                          <span
-                            key={spec.label}
-                            className="rounded-md border border-slate-100 bg-stone-50 px-2.5 py-1 text-xs text-slate-500"
-                          >
-                            <span className="font-semibold text-slate-700">{spec.label}:</span>{" "}
-                            {spec.value.length > 30 ? spec.value.slice(0, 30) + "…" : spec.value}
-                          </span>
-                        ))}
-                      </div>
-                      <div className="mt-6 flex gap-3">
-                        <a
-                          href={`https://wa.me/919810035108?text=${encodeURIComponent(
-                            `Hi, I need ${featured[0].name} for a bulk order. Please share pricing.`
-                          )}`}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="rounded-xl bg-teal-500 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-teal-600"
-                        >
-                          WhatsApp for Price
-                        </a>
-                        <Link
-                          href={`/products/${featured[0].slug}`}
-                          className="flex items-center text-sm font-medium text-slate-500 transition-colors hover:text-teal-600"
-                        >
-                          View details &rarr;
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </AnimateIn>
-            )}
-
-            {/* Remaining featured products */}
-            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-              {featured.slice(1).map((product, i) => (
-                <AnimateIn key={product.slug} delay={i * 60}>
-                  <Link
-                    href={`/products/${product.slug}`}
-                    className="group overflow-hidden rounded-2xl bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md"
-                  >
-                    <div className="relative aspect-[4/3] overflow-hidden bg-slate-100">
-                      <Image
-                        src={product.image}
-                        alt={product.name}
-                        fill
-                        className="object-cover transition-transform duration-500 group-hover:scale-105"
-                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                    </div>
-                    <div className="p-5">
-                      <span className="text-xs font-semibold uppercase tracking-wide text-teal-600">
-                        {categoryLabels[product.category]}
-                      </span>
-                      <h3 className="mt-1 font-semibold text-slate-900 transition-colors group-hover:text-teal-700">
-                        {product.name}
-                      </h3>
-                      <p className="mt-1.5 line-clamp-2 text-sm leading-relaxed text-slate-500">
-                        {product.shortDescription}
-                      </p>
-                      <span className="mt-3 inline-block text-xs font-medium text-teal-600 transition-all group-hover:translate-x-0.5 group-hover:underline">
-                        View details &rarr;
-                      </span>
-                    </div>
-                  </Link>
-                </AnimateIn>
-              ))}
-            </div>
-
-            <div className="mt-6 sm:hidden">
-              <Link
-                href="/products"
-                className="block rounded-xl border border-slate-200 py-3 text-center text-sm font-medium text-slate-600 hover:border-teal-200 hover:text-teal-700"
-              >
-                Browse all products &rarr;
-              </Link>
-            </div>
+      <Suspense fallback={
+        <div className="bg-stone-50 px-4 py-10 sm:px-6">
+          <div className="mx-auto grid max-w-6xl gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {Array.from({ length: 6 }).map((_, i) => (
+              <div key={i} className="h-64 animate-pulse rounded-2xl bg-slate-200" />
+            ))}
           </div>
-        </section>
-      )}
+        </div>
+      }>
+        <ProductsCatalog showBottomCta={false} />
+      </Suspense>
 
       {/* ── Trust Marquee ────────────────────────── */}
       <Marquee items={marqueeItems} />

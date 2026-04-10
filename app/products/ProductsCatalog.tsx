@@ -14,7 +14,7 @@ const allCategories: ProductCategory[] = [
   "complete-kits",
 ];
 
-export default function ProductsCatalog() {
+export default function ProductsCatalog({ showBottomCta = true }: { showBottomCta?: boolean }) {
   const searchParams = useSearchParams();
   const [activeCategory, setActiveCategory] = useState<ProductCategory | "all">("all");
   const [query, setQuery] = useState("");
@@ -229,7 +229,7 @@ export default function ProductsCatalog() {
           </div>
 
           {/* Bottom CTA */}
-          <div className="relative mt-12 overflow-hidden rounded-2xl bg-slate-800 p-8 text-center text-white">
+          {showBottomCta && <div className="relative mt-12 overflow-hidden rounded-2xl bg-slate-800 p-8 text-center text-white">
             <div className="hero-dot-grid pointer-events-none absolute inset-0 opacity-50" />
             <div className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-teal-500/15 blur-3xl" />
             <div className="relative">
@@ -255,7 +255,7 @@ export default function ProductsCatalog() {
                 </a>
               </div>
             </div>
-          </div>
+          </div>}
         </div>
       </section>
     </>
