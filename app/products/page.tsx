@@ -4,7 +4,17 @@ import ProductsCatalog from "./ProductsCatalog";
 export const metadata = {
   title: "Products",
   description:
-    "Complete notebook manufacturing raw materials - binding wires, stitching wires, notebook covers, ledger sheets, OHP sheets, shrink rolls. Wholesale & bulk supply.",
+    "Wholesale notebook manufacturing raw materials from Chawri Bazaar, Delhi. Binding wires, stitching wires, spiral coils, notebook covers, OHP sheets, shrink rolls, writing paper. Bulk supply pan India.",
+  keywords: [
+    "notebook raw material supplier Delhi",
+    "binding wire wholesale Chawri Bazaar",
+    "spiral binding wire supplier India",
+    "notebook cover wholesale Delhi",
+    "stitching wire manufacturer Delhi",
+    "OHP sheet supplier India",
+    "shrink packing roll wholesale",
+    "notebook manufacturing materials bulk",
+  ],
 };
 
 export default function ProductsPage() {

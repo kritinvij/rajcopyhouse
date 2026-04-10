@@ -4,6 +4,17 @@ import AnimateIn from "@/components/AnimateIn";
 export const metadata: Metadata = {
   title: "About",
   description: "40+ years supplying premium notebook manufacturing raw materials from Chawri Bazaar, Delhi. Meet Manoj Sachdeva and the RCH story.",
+  keywords: [
+    "Raj Copy House about",
+    "notebook supplier Chawri Bazaar Delhi",
+    "Manoj Sachdeva notebook materials",
+    "notebook raw material supplier 40 years",
+    "RCH Total Solutions Delhi",
+    "Duracoil spiral wire brand",
+    "SteelBind binding wire",
+    "notebook manufacturing supplier India",
+    "wholesale stationery supplier Old Delhi",
+  ],
 };
 
 const subBrands = [

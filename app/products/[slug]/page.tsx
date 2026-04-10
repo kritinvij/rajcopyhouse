@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getProductBySlug, getProductsByCategory, products, categoryLabels } from "@/lib/products";
+import { getProductBySlug, getProductsByCategory, getCrossSells, products, categoryLabels } from "@/lib/products";
 import ImageGallery from "@/components/ImageGallery";
 import StickyInquiryBar from "@/components/StickyInquiryBar";
 
@@ -14,6 +14,19 @@ export async function generateStaticParams() {
   return products.map((p) => ({ slug: p.slug }));
 }
 
+const productKeywords: Record<string, string[]> = {
+  "stitching-steel-wires": ["stitching wire wholesale Delhi", "notebook stitching wire supplier", "saddle stitch wire India", "book binding wire", "18 SWG stitching wire"],
+  "spiral-binding-wires": ["spiral binding wire wholesale", "Duracoil spiral wire Delhi", "metal coil binding wire India", "notebook spiral wire supplier", "3:1 pitch binding wire"],
+  "notebook-covers": ["notebook covers wholesale Delhi", "ready-made notebook covers", "Mazboot notebook cover", "spiral notebook cover supplier", "300 designs notebook cover"],
+  "black-ledger-sheets": ["black ledger sheet supplier", "notebook end sheet wholesale", "high GSM ledger sheet India", "black paper notebook", "ledger quality sheet Delhi"],
+  "ohp-sheets": ["OHP sheet wholesale Delhi", "DHP sheet supplier India", "transparency sheet notebook", "clear polypropylene sheet", "OHP film supplier"],
+  "shrink-packing-roll": ["shrink packing roll wholesale", "POF shrink film supplier India", "notebook packaging film", "heat shrink roll Delhi", "shrink wrap film roll"],
+  "writing-paper": ["writing paper wholesale India", "maplitho paper supplier Delhi", "notebook interior paper", "ruled paper wholesale", "60 GSM writing paper"],
+  "black-pp-sheets": ["black PP sheet supplier India", "polypropylene board wholesale", "notebook back cover board", "black plastic sheet Delhi", "PP sheet notebook"],
+  "complete-raw-material-kit": ["notebook raw material supplier Delhi", "complete notebook manufacturing kit", "notebook manufacturing materials India", "one stop notebook supplier"],
+  "plastic-spiral-rings": ["plastic spiral ring wholesale India", "PVC coil binding ring", "plastic binding coil Delhi", "notebook spiral coil supplier"],
+};
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const product = getProductBySlug(slug);
@@ -21,6 +34,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: product.name,
     description: product.shortDescription,
+    keywords: productKeywords[slug] ?? [],
+    openGraph: {
+      title: `${product.name} | Raj Copy House`,
+      description: product.shortDescription,
+      type: "website",
+      url: `https://rajcopyhouse.vercel.app/products/${slug}`,
+    },
     alternates: {
       canonical: `https://rajcopyhouse.vercel.app/products/${slug}`,
     },
@@ -36,7 +56,10 @@ export default async function ProductDetailPage({ params }: Props) {
     .filter((p) => p.slug !== product.slug)
     .slice(0, 3);
 
-  const whatsappMessage = `Hi, I need ${product.name} for a bulk order. Please share pricing and availability.`;
+  const crossSells = getCrossSells(slug);
+
+  const whatsappMessage = `Hi, I need ${product.name}${product.specs[0] ? ` (${product.specs[0].value})` : ""} for a bulk order. Please share pricing, minimum order quantity, and availability.`;
+  const sampleMessage = `Hi, I'm interested in ${product.name} and would like to request a sample before placing a bulk order. Please share the process.`;
 
   const productSchema = {
     "@context": "https://schema.org",
@@ -54,11 +77,25 @@ export default async function ProductDetailPage({ params }: Props) {
     },
   };
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://rajcopyhouse.vercel.app" },
+      { "@type": "ListItem", position: 2, name: "Products", item: "https://rajcopyhouse.vercel.app/products" },
+      { "@type": "ListItem", position: 3, name: product.name, item: `https://rajcopyhouse.vercel.app/products/${slug}` },
+    ],
+  };
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
       {/* Breadcrumb */}
       <div className="bg-white px-4 py-3 sm:px-6">
@@ -141,11 +178,56 @@ export default async function ProductDetailPage({ params }: Props) {
                   Call: +91 98100 35108
                 </a>
               </div>
+              <div className="mt-3 border-t border-slate-100 pt-3 text-center">
+                <a
+                  href={`https://wa.me/919810035108?text=${encodeURIComponent(sampleMessage)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-slate-500 transition-colors hover:text-teal-600"
+                >
+                  Not ready to commit to bulk? <span className="underline">Request a sample first</span>
+                </a>
+              </div>
 
             </div>
           </div>
         </div>
       </section>
+
+      {crossSells.length > 0 && (
+        <section className="border-t border-slate-100 bg-stone-50 px-4 py-10 sm:px-6">
+          <div className="mx-auto max-w-6xl">
+            <h2 className="mb-1 text-lg font-bold text-slate-900">Complete Your Order</h2>
+            <p className="mb-6 text-sm text-slate-500">Manufacturers ordering this product also buy:</p>
+            <div className="grid gap-4 sm:grid-cols-3">
+              {crossSells.map((cs) => (
+                <Link
+                  key={cs.slug}
+                  href={`/products/${cs.slug}`}
+                  className="group flex items-center gap-4 rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-100 transition-all hover:-translate-y-0.5 hover:shadow-md hover:ring-teal-100"
+                >
+                  <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-xl bg-slate-100">
+                    <Image
+                      src={cs.image}
+                      alt={cs.name}
+                      fill
+                      className="object-cover transition-transform duration-300 group-hover:scale-105"
+                      sizes="64px"
+                    />
+                  </div>
+                  <div className="min-w-0">
+                    <div className="truncate font-semibold text-slate-900 transition-colors group-hover:text-teal-700">
+                      {cs.name}
+                    </div>
+                    <div className="mt-0.5 truncate text-xs text-slate-500">{categoryLabels[cs.category]}</div>
+                    <div className="mt-1.5 text-xs font-medium text-teal-600">View details &rarr;</div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {related.length > 0 && (
         <section className="bg-stone-50 px-4 py-12 sm:px-6">

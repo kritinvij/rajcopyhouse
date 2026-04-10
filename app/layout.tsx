@@ -13,6 +13,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://rajcopyhouse.vercel.app"),
   title: {
     default: "Raj Copy House | Complete Notebook Manufacturing Solutions",
     template: "%s | Raj Copy House",

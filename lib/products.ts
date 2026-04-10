@@ -233,3 +233,22 @@ export function getProductsByCategory(category: ProductCategory): Product[] {
 export function getFeaturedProducts(): Product[] {
   return products.filter((p) => p.featured);
 }
+
+// Cross-sell: what manufacturers typically order alongside each product
+const crossSellMap: Record<string, string[]> = {
+  "stitching-steel-wires":   ["notebook-covers", "shrink-packing-roll", "spiral-binding-wires"],
+  "spiral-binding-wires":    ["notebook-covers", "ohp-sheets", "black-ledger-sheets"],
+  "notebook-covers":         ["spiral-binding-wires", "ohp-sheets", "shrink-packing-roll"],
+  "black-ledger-sheets":     ["spiral-binding-wires", "notebook-covers", "ohp-sheets"],
+  "ohp-sheets":              ["notebook-covers", "spiral-binding-wires", "black-pp-sheets"],
+  "shrink-packing-roll":     ["notebook-covers", "stitching-steel-wires", "spiral-binding-wires"],
+  "writing-paper":           ["notebook-covers", "stitching-steel-wires", "shrink-packing-roll"],
+  "black-pp-sheets":         ["spiral-binding-wires", "ohp-sheets", "notebook-covers"],
+  "plastic-spiral-rings":    ["notebook-covers", "black-pp-sheets", "ohp-sheets"],
+  "complete-raw-material-kit": ["stitching-steel-wires", "spiral-binding-wires", "shrink-packing-roll"],
+};
+
+export function getCrossSells(slug: string): Product[] {
+  const slugs = crossSellMap[slug] ?? [];
+  return slugs.map((s) => products.find((p) => p.slug === s)).filter(Boolean) as Product[];
+}

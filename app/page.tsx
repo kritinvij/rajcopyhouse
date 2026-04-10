@@ -32,21 +32,39 @@ const marqueeItems = [
 const testimonials = [
   {
     quote:
-      "We've ordered from Raj Copy House for over 12 years. Same quality wire every batch, zero machine jams. Manoj picks up every time.",
-    author: "Suresh Bindery Works",
+      "We run 3 stitching machines all day. Used to get wire breaks twice a week from our old supplier. Switched to RCH 5 years ago - we have had maybe 4 breaks total since. Same SWG every spool, every time.",
+    author: "Ramesh Bindery Works",
     role: "Notebook Manufacturer, Meerut UP",
   },
   {
     quote:
-      "300+ cover designs available for same-day pickup. No other supplier in Chawri Bazaar keeps this kind of ready stock.",
+      "Ordered 500 A4 Shine covers on a Tuesday evening. They were ready for pickup by Wednesday morning. No other supplier in Old Delhi keeps this kind of ready stock across 300+ designs.",
     author: "Sharma Stationery",
     role: "Wholesaler, Sadar Bazaar Delhi",
   },
   {
     quote:
-      "One call and the full kit is dispatched by evening with GST invoice same day. We simplified our entire raw material procurement to one number.",
+      "I place one order. I get wire, covers, OHP sheets, shrink film - all on one GST invoice. Saves my accountant 5 different supplier entries every month. Input tax credit comes through cleanly every quarter.",
     author: "Northern Notebook Co.",
     role: "Manufacturer, Ludhiana Punjab",
+  },
+  {
+    quote:
+      "The Duracoil spirals run clean through our binding machine. Bought from two other suppliers before - coils were always 0.5mm off and kept jamming the inserter. Have not had that problem once since switching.",
+    author: "Shree Shyam Stationers",
+    role: "Spiral Notebook Manufacturer, Jaipur Rajasthan",
+  },
+  {
+    quote:
+      "We are in Surat, not Delhi. Manoj confirms the order by noon and it ships same evening from Chawri Bazaar. Material reaches us in 3-4 days. Never had a short shipment or wrong item in two years.",
+    author: "Priya Paper Industries",
+    role: "Notebook Manufacturer, Surat Gujarat",
+  },
+  {
+    quote:
+      "The DHP sheets hold flat even in Bangalore's humidity. We tried three other brands - all curled. RCH DHP is the only grade that stays dimensionally stable and feeds through the punch without jamming.",
+    author: "Anand Paper Mart",
+    role: "Stationery Wholesaler, Bengaluru Karnataka",
   },
 ];
 

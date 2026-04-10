@@ -3,6 +3,16 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Contact",
   description: "Get in touch with Raj Copy House. Call or WhatsApp Manoj Sachdeva directly for bulk orders and wholesale enquiries. Chawri Bazaar, Delhi.",
+  keywords: [
+    "contact Raj Copy House",
+    "notebook raw material supplier contact Delhi",
+    "binding wire supplier phone number Delhi",
+    "Chawri Bazaar stationery supplier contact",
+    "wholesale notebook materials order Delhi",
+    "Manoj Sachdeva WhatsApp notebook supply",
+    "bulk notebook materials enquiry India",
+    "notebook manufacturer supplier Delhi phone",
+  ],
 };
 
 export default function ContactPage() {
