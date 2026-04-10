@@ -20,9 +20,9 @@ export default function Navbar() {
         <Link href="/" className="flex items-center gap-2.5" onClick={() => setMenuOpen(false)}>
           <svg width="38" height="38" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <circle cx="20" cy="20" r="19" fill="#1e293b"/>
-            <circle cx="20" cy="20" r="18.2" fill="none" stroke="#f59e0b" strokeWidth="0.9"/>
-            <circle cx="20" cy="20" r="12" fill="none" stroke="#f59e0b" strokeWidth="0.7"/>
-            <text x="20" y="20" textAnchor="middle" dominantBaseline="central" fontFamily="Georgia, serif" fontSize="9.5" fontWeight="bold" fill="#f59e0b" letterSpacing="0.5">RCH</text>
+            <circle cx="20" cy="20" r="18.2" fill="none" stroke="#14b8a6" strokeWidth="0.9"/>
+            <circle cx="20" cy="20" r="12" fill="none" stroke="#14b8a6" strokeWidth="0.7"/>
+            <text x="20" y="20" textAnchor="middle" dominantBaseline="central" fontFamily="Georgia, serif" fontSize="9.5" fontWeight="bold" fill="#14b8a6" letterSpacing="0.5">RCH</text>
           </svg>
           <div className="leading-tight">
             <div className="text-sm font-semibold text-white">Raj Copy House</div>
