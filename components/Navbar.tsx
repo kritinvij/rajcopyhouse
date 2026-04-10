@@ -33,7 +33,7 @@ export default function Navbar() {
               key={link.href}
               href={link.href}
               className={`text-sm font-medium transition-colors hover:text-white ${
-                pathname === link.href ? "text-white" : "text-slate-400"
+                pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href)) ? "text-white" : "text-slate-400"
               }`}
             >
               {link.label}
@@ -75,7 +75,7 @@ export default function Navbar() {
                 href={link.href}
                 onClick={() => setMenuOpen(false)}
                 className={`rounded-lg px-3 py-2.5 text-sm font-medium transition-colors hover:bg-slate-800 ${
-                  pathname === link.href ? "text-white" : "text-slate-300"
+                  pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href)) ? "text-white bg-slate-800" : "text-slate-300"
                 }`}
               >
                 {link.label}

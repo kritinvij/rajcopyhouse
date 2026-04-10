@@ -13,7 +13,6 @@ export interface ProductSpec {
 export interface Product {
   slug: string;
   name: string;
-  brand?: string;
   category: ProductCategory;
   shortDescription: string;
   description: string;
@@ -34,7 +33,6 @@ export const products: Product[] = [
   {
     slug: "stitching-steel-wires",
     name: "Stitching Steel Wires",
-    brand: "Stitch Bind",
     category: "binding-wires",
     shortDescription:
       "High-tensile steel wires for precise notebook and book stitching. Smooth, consistent feed for all stitching machines.",
@@ -43,7 +41,7 @@ export const products: Product[] = [
     specs: [
       { label: "Material", value: "High-grade steel" },
       { label: "Finish", value: "Bright / Galvanized" },
-      { label: "Gauges", value: "Multiple options available" },
+      { label: "Gauges", value: "18 SWG, 20 SWG, 22 SWG, 24 SWG, 26 SWG" },
       { label: "Pack", value: "Spool / Bulk rolls" },
       { label: "Supply", value: "Wholesale & Retail" },
     ],
@@ -53,17 +51,16 @@ export const products: Product[] = [
   {
     slug: "spiral-binding-wires",
     name: "Spiral Binding Wires",
-    brand: "Duracoil",
     category: "binding-wires",
     shortDescription:
       "Export-quality metallic spiral wires. High strength, anti-corrosion coating, and premium finish for professional notebooks.",
     description:
-      "Duracoil spiral binding wires are our flagship product - export-quality steel spirals trusted by notebook manufacturers across India. Each coil is precision-wound for consistent pitch and diameter, ensuring smooth insertion and a professional finish. The anti-corrosion coating extends product life, making it ideal for all climate zones.",
+      "Our spiral binding wires are export-quality steel spirals trusted by notebook manufacturers across India. Each coil is precision-wound for consistent pitch and diameter, ensuring smooth insertion and a professional finish. The anti-corrosion coating extends product life, making it ideal for all climate zones.",
     specs: [
-      { label: "Brand", value: "Duracoil (RCH Total Solutions)" },
       { label: "Material", value: "Premium steel - export grade" },
       { label: "Properties", value: "High strength, anti-corrosion, premium finish" },
-      { label: "Sizes", value: "Multiple diameter options" },
+      { label: "Diameters", value: "3/8\", 1/2\", 5/8\", 3/4\", 1\" and custom" },
+      { label: "Pitch", value: "3:1 and 2:1" },
       { label: "Supply", value: "Wholesale & Bulk" },
     ],
     image: "/images/product-duracoil.jpeg",
@@ -80,8 +77,8 @@ export const products: Product[] = [
     specs: [
       { label: "Designs", value: "300+ in stock" },
       { label: "Variants", value: "Mazboot / Shine / Perfect Finishing" },
+      { label: "Sizes", value: "A4, A5, Legal, and custom" },
       { label: "Compatible", value: "All standard spiral notebook sizes" },
-      { label: "MOQ", value: "Contact for bulk pricing" },
       { label: "Supply", value: "Wholesale" },
     ],
     image: "/images/rch-catalog-overview.jpeg",
@@ -97,7 +94,7 @@ export const products: Product[] = [
       "Our Black Ledger Quality Sheets are specifically formulated for spiral-bound notebook production. High GSM ensures the sheets lie flat and resist tearing during binding. The smooth surface accepts ink cleanly, while the consistent thickness delivers a uniform stack height - critical for automated binding lines.",
     specs: [
       { label: "Type", value: "Black ledger / end sheets" },
-      { label: "GSM", value: "High GSM - multiple options" },
+      { label: "GSM", value: "90 GSM, 100 GSM, 130 GSM" },
       { label: "Surface", value: "Smooth, durable" },
       { label: "Use", value: "Spiral-bound notebooks & stationery" },
       { label: "Supply", value: "Wholesale" },
@@ -107,35 +104,35 @@ export const products: Product[] = [
   },
   {
     slug: "ohp-sheets",
-    name: "OHP Sheets",
-    brand: "Clear Bind",
+    name: "OHP & DHP Sheets",
     category: "sheets",
     shortDescription:
-      "Crystal-clear OHP sheets for notebook front covers and stationery. Consistent thickness, no distortion.",
+      "Crystal-clear OHP and DHP sheets for notebook front covers. Consistent thickness, no distortion.",
     description:
-      "Clear Bind OHP sheets provide the crystal-clear front cover finish that premium notebooks demand. Manufactured to consistent thickness for smooth binding and a distortion-free view of the notebook cover beneath. Suitable for thermal and cold lamination processes and compatible with all standard comb and spiral binders.",
+      "Our OHP and DHP sheets provide the crystal-clear front cover finish that premium notebooks demand. Manufactured to consistent thickness for smooth binding and a distortion-free view of the notebook cover beneath. Suitable for thermal and cold lamination processes and compatible with all standard comb and spiral binders.",
     specs: [
-      { label: "Brand", value: "Clear Bind (RCH Total Solutions)" },
-      { label: "Type", value: "Crystal clear OHP / DHP sheets" },
+      { label: "Type", value: "Crystal clear OHP / DHP" },
+      { label: "Thickness", value: "75 micron, 100 micron, 125 micron" },
+      { label: "Sizes", value: "A4, A5, and custom roll widths" },
       { label: "Compatibility", value: "Comb binding, spiral binding, covers" },
       { label: "Supply", value: "Wholesale & Bulk" },
     ],
-    image: "/images/rch-four-solutions.jpeg",
+    image: "/images/product-all-types.jpeg",
     featured: false,
   },
   {
     slug: "shrink-packing-roll",
     name: "Shrink Packing Roll",
-    brand: "Pack Bind",
     category: "packaging",
     shortDescription:
       "High-quality shrink film rolls for finished notebook packaging. Tight, professional wrap with excellent clarity.",
     description:
-      "Pack Bind shrink packing rolls provide the final professional touch to notebook packaging. The high-clarity film shrinks uniformly for a tight, tamper-evident wrap. Suitable for all standard heat-shrink tunnel machines, with consistent roll lengths and widths for uninterrupted production runs.",
+      "Our shrink packing rolls provide the final professional touch to notebook packaging. The high-clarity film shrinks uniformly for a tight, tamper-evident wrap. Suitable for all standard heat-shrink tunnel machines, with consistent roll lengths and widths for uninterrupted production runs.",
     specs: [
-      { label: "Brand", value: "Pack Bind (RCH Total Solutions)" },
-      { label: "Type", value: "Heat-shrink film roll" },
-      { label: "Clarity", value: "High clarity" },
+      { label: "Type", value: "POF heat-shrink film roll" },
+      { label: "Thickness", value: "15 micron, 19 micron, 25 micron" },
+      { label: "Roll Widths", value: "10\", 12\", 14\", 16\" and custom" },
+      { label: "Clarity", value: "High clarity, gloss finish" },
       { label: "Compatibility", value: "All standard shrink tunnel machines" },
       { label: "Supply", value: "Wholesale & Bulk" },
     ],
@@ -152,8 +149,8 @@ export const products: Product[] = [
       "Our writing paper is sourced from trusted mills and selected specifically for notebook interior use. Consistent GSM across the roll eliminates weight variance in finished notebooks. The smooth surface works with ballpoint, gel, and fountain pens without feathering or bleed-through.",
     specs: [
       { label: "Type", value: "Maplitho / ruled / plain" },
-      { label: "GSM", value: "60 GSM and above" },
-      { label: "Surface", value: "Smooth, pen-friendly" },
+      { label: "GSM", value: "60 GSM, 70 GSM, 75 GSM, 80 GSM" },
+      { label: "Surface", value: "Smooth, pen-friendly, no bleed-through" },
       { label: "Supply", value: "Wholesale by weight / ream" },
     ],
     image: "/images/product-materials-list-white.jpeg",
@@ -170,11 +167,11 @@ export const products: Product[] = [
     specs: [
       { label: "Material", value: "Polypropylene (PP)" },
       { label: "Color", value: "Black" },
+      { label: "Thickness", value: "0.3 mm, 0.5 mm, 0.7 mm, 1.0 mm" },
       { label: "Use", value: "Back covers, protective dividers" },
-      { label: "Thickness", value: "Multiple options" },
       { label: "Supply", value: "Wholesale & Bulk" },
     ],
-    image: "/images/product-all-types.jpeg",
+    image: "/images/product-materials-list-black.jpeg",
     featured: false,
   },
   {
