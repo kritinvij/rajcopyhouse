@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Contact",
+  title: "Contact - Call or WhatsApp for Bulk Orders",
   description: "Get in touch with Raj Copy House. Call or WhatsApp Manoj Sachdeva directly for bulk orders and wholesale enquiries. Chawri Bazaar, Delhi.",
   keywords: [
     "contact Raj Copy House",

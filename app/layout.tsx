@@ -42,11 +42,26 @@ export const metadata: Metadata = {
     locale: "en_IN",
     url: "https://rajcopyhouse.vercel.app",
     siteName: "Raj Copy House",
+    images: [
+      {
+        url: "/images/pexels-notebook-covers.jpeg",
+        width: 1200,
+        height: 630,
+        alt: "Raj Copy House - Notebook Manufacturing Raw Materials",
+      },
+    ],
   },
   robots: { index: true, follow: true },
   alternates: {
     canonical: "https://rajcopyhouse.vercel.app",
   },
+};
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Raj Copy House",
+  url: "https://rajcopyhouse.vercel.app",
 };
 
 const localBusinessSchema = {
@@ -119,6 +134,10 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
         />
         <Navbar />
         <main>{children}</main>

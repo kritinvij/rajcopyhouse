@@ -40,6 +40,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: product.shortDescription,
       type: "website",
       url: `https://rajcopyhouse.vercel.app/products/${slug}`,
+      images: [
+        {
+          url: product.image,
+          width: 1200,
+          height: 630,
+          alt: `${product.name} - Raj Copy House`,
+        },
+      ],
     },
     alternates: {
       canonical: `https://rajcopyhouse.vercel.app/products/${slug}`,
@@ -67,9 +75,12 @@ export default async function ProductDetailPage({ params }: Props) {
     name: product.name,
     description: product.description,
     image: `https://rajcopyhouse.vercel.app${product.image}`,
+    url: `https://rajcopyhouse.vercel.app/products/${slug}`,
     offers: {
       "@type": "Offer",
       availability: "https://schema.org/InStock",
+      priceCurrency: "INR",
+      url: `https://rajcopyhouse.vercel.app/products/${slug}`,
       seller: {
         "@type": "Organization",
         name: "Raj Copy House",
@@ -178,14 +189,14 @@ export default async function ProductDetailPage({ params }: Props) {
                   Call: +91 98100 35108
                 </a>
               </div>
-              <div className="mt-3 border-t border-slate-100 pt-3 text-center">
+              <div className="mt-3 border-t border-slate-100 pt-3">
                 <a
                   href={`https://wa.me/919810035108?text=${encodeURIComponent(sampleMessage)}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm text-slate-500 transition-colors hover:text-teal-600"
+                  className="flex w-full items-center justify-center gap-2 rounded-xl border border-slate-200 px-5 py-3 text-sm font-medium text-slate-600 transition-colors hover:border-teal-300 hover:text-teal-700"
                 >
-                  Not ready to commit to bulk? <span className="underline">Request a sample first</span>
+                  Request a Sample First
                 </a>
               </div>
 
@@ -197,7 +208,7 @@ export default async function ProductDetailPage({ params }: Props) {
       {crossSells.length > 0 && (
         <section className="border-t border-slate-100 bg-stone-50 px-4 py-10 sm:px-6">
           <div className="mx-auto max-w-6xl">
-            <h2 className="mb-1 text-lg font-bold text-slate-900">Complete Your Order</h2>
+            <h2 className="mb-1 text-lg font-bold text-slate-900">Often Ordered Together</h2>
             <p className="mb-6 text-sm text-slate-500">Manufacturers ordering this product also buy:</p>
             <div className="grid gap-4 sm:grid-cols-3">
               {crossSells.map((cs) => (

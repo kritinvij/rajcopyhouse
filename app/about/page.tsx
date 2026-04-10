@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import AnimateIn from "@/components/AnimateIn";
 
 export const metadata: Metadata = {
-  title: "About",
+  title: "About - 40+ Years Notebook Raw Materials Supplier, Chawri Bazaar Delhi",
   description: "40+ years supplying premium notebook manufacturing raw materials from Chawri Bazaar, Delhi. Meet Manoj Sachdeva and the RCH story.",
   keywords: [
     "Raj Copy House about",
