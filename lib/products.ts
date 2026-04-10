@@ -122,7 +122,8 @@ export const products: Product[] = [
       { label: "Compatible punch", value: "21-hole (A4), 19-hole (A5), 34-hole (A4 comb)" },
       { label: "Supply", value: "Wholesale / B2B" },
     ],
-    image: "/images/product-all-types.jpeg",
+    image: "/images/pexels-ohp-sheets.jpeg",
+    images: ["/images/product-all-types.jpeg"],
     featured: false,
   },
   {
@@ -141,8 +142,8 @@ export const products: Product[] = [
       { label: "Compatibility", value: "All standard shrink tunnel machines" },
       { label: "Supply", value: "Wholesale / B2B" },
     ],
-    image: "/images/rch-four-solutions.jpeg",
-    images: ["/images/shrink-packing-roll-2.jpeg"],
+    image: "/images/pexels-shrink-film.jpeg",
+    images: ["/images/rch-four-solutions.jpeg", "/images/shrink-packing-roll-2.jpeg"],
     featured: false,
   },
   {
@@ -161,7 +162,8 @@ export const products: Product[] = [
       { label: "Surface", value: "Smooth, pen-friendly, no bleed-through" },
       { label: "Supply", value: "Wholesale / B2B" },
     ],
-    image: "/images/product-materials-list-white.jpeg",
+    image: "/images/pexels-writing-paper.jpeg",
+    images: ["/images/product-materials-list-white.jpeg"],
     featured: false,
   },
   {
@@ -179,7 +181,8 @@ export const products: Product[] = [
       { label: "Use", value: "Back covers, protective dividers" },
       { label: "Supply", value: "Wholesale / B2B" },
     ],
-    image: "/images/product-materials-list-black.jpeg",
+    image: "/images/pexels-black-pp-sheets.jpeg",
+    images: ["/images/product-materials-list-black.jpeg"],
     featured: false,
   },
   {
@@ -196,8 +199,8 @@ export const products: Product[] = [
       { label: "Customization", value: "Custom kits quoted per specification - contact us with your production volume and product list" },
       { label: "Supply", value: "Wholesale / B2B" },
     ],
-    image: "/images/product-materials-list-gold.jpeg",
-    images: ["/images/rch-total-solutions-overview.jpeg"],
+    image: "/images/pexels-stationery-kit.jpeg",
+    images: ["/images/product-materials-list-gold.jpeg", "/images/rch-total-solutions-overview.jpeg"],
     featured: true,
   },
   {
