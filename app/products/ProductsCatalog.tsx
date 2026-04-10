@@ -68,7 +68,7 @@ export default function ProductsCatalog({ showBottomCta = true }: { showBottomCt
       {/* Sticky filter + search bar */}
       <div className="sticky top-[57px] z-30 border-b border-slate-100 bg-white px-4 py-3 sm:px-6">
         <div className="mx-auto max-w-6xl">
-          <div className="flex flex-col gap-2 sm:flex-row sm:items-center">
+          <div className="flex flex-col gap-2 sm:flex-row sm:items-start">
             {/* Search input */}
             <div className="relative sm:w-56 shrink-0">
               <SearchIcon />
@@ -95,7 +95,7 @@ export default function ProductsCatalog({ showBottomCta = true }: { showBottomCt
             <div className="hidden h-5 w-px bg-slate-200 sm:block" />
 
             {/* Category pills */}
-            <div className="flex gap-2 overflow-x-auto pb-0.5">
+            <div className="flex flex-wrap gap-2">
               <button
                 onClick={() => handleCategoryChange("all")}
                 className={`shrink-0 cursor-pointer rounded-full px-4 py-1.5 text-sm font-medium transition-colors ${
