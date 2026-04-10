@@ -1,7 +1,5 @@
 import { Suspense } from "react";
 import Link from "next/link";
-import Image from "next/image";
-import { getFeaturedProducts, categoryLabels } from "@/lib/products";
 import AnimateIn from "@/components/AnimateIn";
 import CountUp from "@/components/CountUp";
 import Marquee from "@/components/Marquee";
@@ -144,8 +142,6 @@ const orderSteps = [
 ];
 
 export default function HomePage() {
-  const featured = getFeaturedProducts();
-
   return (
     <>
       {/* ── Hero ─────────────────────────────────── */}
@@ -276,132 +272,12 @@ export default function HomePage() {
       </section>
 
 
-      {/* ── Featured Products ─────────────────────── */}
-      {featured.length > 0 && (
-        <section className="bg-stone-50 px-4 py-16 sm:px-6 sm:py-20">
-          <div className="mx-auto max-w-6xl">
-            <AnimateIn>
-              <div className="mb-8 flex items-end justify-between">
-                <div>
-                  <h2 className="text-3xl font-bold text-slate-900">Featured Products</h2>
-                  <p className="mt-1.5 text-slate-500">
-                    Most popular raw materials for notebook manufacturers.
-                  </p>
-                </div>
-              </div>
-            </AnimateIn>
-
-            {/* Hero card - first featured product */}
-            {featured[0] && (
-              <AnimateIn>
-                <div className="group mb-5 overflow-hidden rounded-2xl bg-white shadow-sm transition-shadow duration-300 hover:shadow-md">
-                  <div className="grid lg:grid-cols-2">
-                    <Link
-                      href={`/products/${featured[0].slug}`}
-                      className="relative block aspect-[4/3] overflow-hidden bg-slate-100 lg:aspect-auto lg:min-h-[320px]"
-                    >
-                      <Image
-                        src={featured[0].image}
-                        alt={featured[0].name}
-                        fill
-                        className="object-cover transition-transform duration-700 group-hover:scale-105"
-                        sizes="(max-width: 1024px) 100vw, 50vw"
-                        priority
-                      />
-                    </Link>
-                    <div className="flex flex-col justify-center p-8 lg:p-10">
-                      <span className="text-xs font-semibold uppercase tracking-wider text-teal-600">
-                        {categoryLabels[featured[0].category]}
-                      </span>
-                      <Link href={`/products/${featured[0].slug}`}>
-                        <h3 className="mt-2 text-2xl font-bold text-slate-900 transition-colors hover:text-teal-700 lg:text-3xl">
-                          {featured[0].name}
-                        </h3>
-                      </Link>
-                      <p className="mt-3 text-base leading-relaxed text-slate-500">
-                        {featured[0].shortDescription}
-                      </p>
-                      <div className="mt-4 flex flex-wrap gap-2">
-                        {featured[0].specs.slice(0, 2).map((spec) => (
-                          <span
-                            key={spec.label}
-                            className="rounded-md border border-slate-100 bg-stone-50 px-2.5 py-1 text-xs text-slate-500"
-                          >
-                            <span className="font-semibold text-slate-700">{spec.label}:</span>{" "}
-                            {spec.value.length > 30 ? spec.value.slice(0, 30) + "…" : spec.value}
-                          </span>
-                        ))}
-                      </div>
-                      <div className="mt-6 flex gap-3">
-                        <a
-                          href={`https://wa.me/919810035108?text=${encodeURIComponent(
-                            `Hi, I need ${featured[0].name} for a bulk order. Please share pricing.`
-                          )}`}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="rounded-xl bg-teal-500 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-teal-600"
-                        >
-                          WhatsApp for Price
-                        </a>
-                        <Link
-                          href={`/products/${featured[0].slug}`}
-                          className="flex items-center text-sm font-medium text-slate-500 transition-colors hover:text-teal-600"
-                        >
-                          View details &rarr;
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </AnimateIn>
-            )}
-
-            {/* Remaining featured products */}
-            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-              {featured.slice(1).map((product, i) => (
-                <AnimateIn key={product.slug} delay={i * 60}>
-                  <Link
-                    href={`/products/${product.slug}`}
-                    className="group overflow-hidden rounded-2xl bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md"
-                  >
-                    <div className="relative aspect-[4/3] overflow-hidden bg-slate-100">
-                      <Image
-                        src={product.image}
-                        alt={product.name}
-                        fill
-                        className="object-cover transition-transform duration-500 group-hover:scale-105"
-                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                    </div>
-                    <div className="p-5">
-                      <span className="text-xs font-semibold uppercase tracking-wide text-teal-600">
-                        {categoryLabels[product.category]}
-                      </span>
-                      <h3 className="mt-1 font-semibold text-slate-900 transition-colors group-hover:text-teal-700">
-                        {product.name}
-                      </h3>
-                      <p className="mt-1.5 line-clamp-2 text-sm leading-relaxed text-slate-500">
-                        {product.shortDescription}
-                      </p>
-                      <span className="mt-3 inline-block text-xs font-medium text-teal-600 transition-all group-hover:translate-x-0.5 group-hover:underline">
-                        View details &rarr;
-                      </span>
-                    </div>
-                  </Link>
-                </AnimateIn>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
       {/* ── All Products ─────────────────────────── */}
-      <section className="bg-white px-4 pb-2 pt-12 sm:px-6">
+      <section className="bg-stone-50 px-4 pb-2 pt-12 sm:px-6">
         <div className="mx-auto max-w-6xl">
           <AnimateIn>
-            <h2 className="text-2xl font-bold text-slate-900 sm:text-3xl">Browse All Products</h2>
-            <p className="mt-1.5 text-slate-500">Search or filter by category.</p>
+            <h2 className="text-2xl font-bold text-slate-900 sm:text-3xl">Our Products</h2>
+            <p className="mt-1.5 text-slate-500">Filter by category or search for what you need.</p>
           </AnimateIn>
         </div>
       </section>
