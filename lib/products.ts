@@ -65,8 +65,8 @@ export const products: Product[] = [
       { label: "Pitch", value: "3:1 and 2:1" },
       { label: "Supply", value: "Wholesale / B2B" },
     ],
-    image: "/images/pexels-spiral-wire.jpeg",
-    images: ["/images/product-duracoil.jpeg", "/images/steelbind-spiral-photo.jpeg", "/images/brands-steelbind-duracoil.jpeg"],
+    image: "/images/pixabay-spiral-wire.jpeg",
+    images: ["/images/pixabay-spiral-bindings.jpeg", "/images/pixabay-binding-machine.jpeg", "/images/product-duracoil.jpeg", "/images/steelbind-spiral-photo.jpeg"],
     featured: true,
   },
   {
@@ -162,8 +162,8 @@ export const products: Product[] = [
       { label: "Surface", value: "Smooth, pen-friendly, no bleed-through" },
       { label: "Supply", value: "Wholesale / B2B" },
     ],
-    image: "/images/pexels-writing-paper.jpeg",
-    images: ["/images/product-materials-list-white.jpeg"],
+    image: "/images/pixabay-ruled-paper.jpeg",
+    images: ["/images/pexels-writing-paper.jpeg", "/images/product-materials-list-white.jpeg"],
     featured: false,
   },
   {
