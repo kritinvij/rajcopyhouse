@@ -181,8 +181,8 @@ export const products: Product[] = [
       { label: "Use", value: "Back covers, protective dividers" },
       { label: "Supply", value: "Wholesale / B2B" },
     ],
-    image: "/images/pexels-black-pp-sheets.jpeg",
-    images: ["/images/product-materials-list-black.jpeg"],
+    image: "/images/gemini-black-notebooks.jpeg",
+    images: ["/images/gemini-black-pp-product.jpeg", "/images/pexels-black-pp-sheets.jpeg", "/images/product-materials-list-black.jpeg"],
     featured: false,
   },
   {
