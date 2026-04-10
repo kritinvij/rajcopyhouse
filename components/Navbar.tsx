@@ -19,14 +19,23 @@ export default function Navbar() {
     <header className="sticky top-0 z-40 bg-slate-800">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3.5 sm:px-6">
         <Link href="/" className="flex items-center gap-2.5" onClick={() => setMenuOpen(false)}>
-          <svg width="38" height="38" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <rect width="48" height="48" rx="10" fill="#0d9488"/>
-            <text x="10" y="37" fontFamily="Georgia, serif" fontSize="31" fontWeight="bold" fill="white">R</text>
-            <line x1="26" y1="27" x2="39" y2="43" stroke="white" strokeWidth="5" strokeLinecap="round" opacity="0.35"/>
+          {/* Logo mark: spiral binding coils + notebook pages */}
+          <svg width="36" height="36" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect width="48" height="48" rx="11" fill="#0d9488"/>
+            {/* Wire thread */}
+            <line x1="14" y1="11.5" x2="14" y2="36.5" stroke="white" strokeWidth="1" opacity="0.25"/>
+            {/* Coil rings */}
+            <circle cx="14" cy="16" r="4" fill="none" stroke="white" strokeWidth="2.5"/>
+            <circle cx="14" cy="24" r="4" fill="none" stroke="white" strokeWidth="2.5"/>
+            <circle cx="14" cy="32" r="4" fill="none" stroke="white" strokeWidth="2.5"/>
+            {/* Page bars */}
+            <rect x="21" y="14" width="19" height="4" rx="1.5" fill="white"/>
+            <rect x="21" y="22" width="19" height="4" rx="1.5" fill="white"/>
+            <rect x="21" y="30" width="14" height="4" rx="1.5" fill="white" opacity="0.7"/>
           </svg>
           <div className="leading-tight">
-            <div className="text-sm font-semibold text-white">Raj Copy House</div>
-            <div className="text-xs text-slate-400">Total Solutions</div>
+            <div className="text-sm font-bold tracking-tight text-white">Raj Copy House</div>
+            <div className="text-[10px] font-semibold uppercase tracking-widest text-teal-400">Total Solutions</div>
           </div>
         </Link>
 

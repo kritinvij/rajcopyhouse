@@ -14,6 +14,23 @@ const allCategories: ProductCategory[] = [
   "complete-kits",
 ];
 
+// Short labels for filter pills - full labels are used elsewhere for SEO/content
+const pillLabels: Record<ProductCategory, string> = {
+  "binding-wires": "Binding Wires",
+  "covers": "Covers",
+  "sheets": "Sheets",
+  "packaging": "Packaging",
+  "complete-kits": "Full Kits",
+};
+
+// Static counts - computed once, products array is static
+const categoryCounts: Record<string, number> = {
+  all: products.length,
+  ...Object.fromEntries(
+    allCategories.map((cat) => [cat, products.filter((p) => p.category === cat).length])
+  ),
+};
+
 export default function ProductsCatalog({ showBottomCta = true }: { showBottomCta?: boolean }) {
   const searchParams = useSearchParams();
   const [activeCategory, setActiveCategory] = useState<ProductCategory | "all">("all");
@@ -40,7 +57,6 @@ export default function ProductsCatalog({ showBottomCta = true }: { showBottomCt
     triggerFade(() => setActiveCategory(cat));
   };
 
-  // Search updates instantly - no fade so products stay visible while typing
   const handleSearch = (value: string) => {
     setInputValue(value);
     setQuery(value);
@@ -63,63 +79,76 @@ export default function ProductsCatalog({ showBottomCta = true }: { showBottomCt
     );
   });
 
+  const isFiltered = query.trim() || activeCategory !== "all";
+
   return (
     <>
-      {/* Sticky filter + search bar */}
-      <div className="sticky top-[57px] z-30 border-b border-slate-100 bg-white px-4 py-3 sm:px-6">
-        <div className="mx-auto max-w-6xl">
-          <div className="flex flex-col gap-2 sm:flex-row sm:items-start">
-            {/* Search input */}
-            <div className="relative sm:w-56 shrink-0">
-              <SearchIcon />
+      {/* Sticky filter bar */}
+      <div className="sticky top-[57px] z-30 border-b border-slate-200/80 bg-white/95 px-4 pb-3 pt-3 shadow-sm backdrop-blur-sm sm:px-6">
+        <div className="mx-auto max-w-6xl space-y-2.5">
+
+          {/* Row 1: Search + result count */}
+          <div className="flex items-center gap-3">
+            <div className="relative min-w-0 flex-1 sm:max-w-sm">
+              <span className="pointer-events-none absolute inset-y-0 left-3 flex items-center text-slate-400">
+                <SearchIcon />
+              </span>
               <input
                 type="text"
                 value={inputValue}
                 onChange={(e) => handleSearch(e.target.value)}
-                placeholder="Search products..."
-                className="w-full rounded-full border border-slate-200 bg-slate-50 py-1.5 pl-9 pr-8 text-sm text-slate-700 placeholder:text-slate-400 focus:border-teal-400 focus:outline-none focus:ring-1 focus:ring-teal-400"
+                placeholder="Search products, specs, grades…"
+                className="w-full rounded-xl border border-slate-200 bg-slate-50 py-2 pl-9 pr-8 text-sm text-slate-800 placeholder:text-slate-400 transition-all duration-150 focus:border-teal-400 focus:bg-white focus:outline-none focus:ring-4 focus:ring-teal-400/10"
                 aria-label="Search products"
               />
               {inputValue && (
                 <button
                   onClick={handleClear}
                   aria-label="Clear search"
-                  className="absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer text-slate-400 hover:text-slate-600"
+                  className="absolute inset-y-0 right-0 flex items-center px-3 text-slate-400 transition-colors hover:text-slate-700"
                 >
                   <XIcon />
                 </button>
               )}
             </div>
 
-            {/* Divider */}
-            <div className="hidden h-5 w-px bg-slate-200 sm:block" />
+            <span className="shrink-0 text-xs tabular-nums text-slate-400">
+              {isFiltered ? (
+                <>{filtered.length} <span className="text-slate-300">/ {products.length}</span></>
+              ) : (
+                <>{products.length} products</>
+              )}
+            </span>
+          </div>
 
-            {/* Category pills */}
-            <div className="flex flex-wrap gap-2">
+          {/* Row 2: Category pills */}
+          <div className="flex flex-wrap gap-1.5">
+            {/* All */}
+            <CategoryPill
+              label="All"
+              count={categoryCounts.all}
+              active={activeCategory === "all"}
+              onClick={() => handleCategoryChange("all")}
+            />
+            {allCategories.map((cat) => (
+              <CategoryPill
+                key={cat}
+                label={pillLabels[cat]}
+                count={categoryCounts[cat]}
+                active={activeCategory === cat}
+                onClick={() => handleCategoryChange(cat)}
+              />
+            ))}
+
+            {/* Clear filter link when active */}
+            {isFiltered && (
               <button
-                onClick={() => handleCategoryChange("all")}
-                className={`shrink-0 cursor-pointer rounded-full px-4 py-1.5 text-sm font-medium transition-colors ${
-                  activeCategory === "all"
-                    ? "bg-teal-600 text-white"
-                    : "bg-slate-100 text-slate-600 hover:bg-slate-200"
-                }`}
+                onClick={() => { handleClear(); handleCategoryChange("all"); }}
+                className="ml-1 self-center text-xs text-slate-400 underline-offset-2 transition-colors hover:text-teal-600 hover:underline"
               >
-                All
+                Clear
               </button>
-              {allCategories.map((cat) => (
-                <button
-                  key={cat}
-                  onClick={() => handleCategoryChange(cat)}
-                  className={`shrink-0 cursor-pointer rounded-full px-4 py-1.5 text-sm font-medium transition-colors ${
-                    activeCategory === cat
-                      ? "bg-teal-600 text-white"
-                      : "bg-slate-100 text-slate-600 hover:bg-slate-200"
-                  }`}
-                >
-                  {categoryLabels[cat]}
-                </button>
-              ))}
-            </div>
+            )}
           </div>
         </div>
       </div>
@@ -127,27 +156,21 @@ export default function ProductsCatalog({ showBottomCta = true }: { showBottomCt
       {/* Product grid */}
       <section className="bg-stone-50 px-4 py-10 sm:px-6">
         <div className="mx-auto max-w-6xl">
-          <p className="mb-6 text-sm text-slate-400">
-            {filtered.length} product{filtered.length !== 1 ? "s" : ""}
-            {query && <span> matching &ldquo;{query}&rdquo;</span>}
-            {!query && activeCategory !== "all" && (
-              <span> in {categoryLabels[activeCategory]}</span>
-            )}
-          </p>
-
-          <div
-            className={`transition-opacity duration-150 ${fading ? "opacity-0" : "opacity-100"}`}
-          >
+          <div className={`transition-opacity duration-150 ${fading ? "opacity-0" : "opacity-100"}`}>
             {filtered.length === 0 ? (
-              <div className="py-20 text-center">
-                <p className="text-slate-500">
-                  No products found{query ? ` for "${query}"` : ""}.
+              <div className="py-24 text-center">
+                <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-slate-100 text-slate-400">
+                  <SearchIcon />
+                </div>
+                <p className="text-sm font-medium text-slate-600">
+                  No products match{query ? ` "${query}"` : ""}
                 </p>
+                <p className="mt-1 text-xs text-slate-400">Try a different keyword or category</p>
                 <button
-                  onClick={handleClear}
-                  className="mt-3 cursor-pointer text-sm text-teal-600 hover:underline"
+                  onClick={() => { handleClear(); handleCategoryChange("all"); }}
+                  className="mt-4 cursor-pointer rounded-lg border border-slate-200 px-4 py-2 text-sm text-slate-600 transition-colors hover:border-teal-300 hover:text-teal-700"
                 >
-                  Clear search
+                  Show all products
                 </button>
               </div>
             ) : (
@@ -262,6 +285,40 @@ export default function ProductsCatalog({ showBottomCta = true }: { showBottomCt
   );
 }
 
+function CategoryPill({
+  label,
+  count,
+  active,
+  onClick,
+}: {
+  label: string;
+  count: number;
+  active: boolean;
+  onClick: () => void;
+}) {
+  return (
+    <button
+      onClick={onClick}
+      className={`inline-flex cursor-pointer items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-medium transition-all duration-150 ${
+        active
+          ? "bg-teal-600 text-white shadow-sm shadow-teal-600/30"
+          : "bg-slate-100 text-slate-500 hover:bg-slate-200 hover:text-slate-800"
+      }`}
+    >
+      {label}
+      <span
+        className={`rounded-full px-1.5 py-px text-[10px] font-semibold tabular-nums leading-tight ${
+          active
+            ? "bg-white/20 text-teal-50"
+            : "bg-slate-200 text-slate-500"
+        }`}
+      >
+        {count}
+      </span>
+    </button>
+  );
+}
+
 function MiniWhatsAppIcon() {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-3.5 w-3.5 shrink-0" aria-hidden="true">
@@ -275,7 +332,7 @@ function SearchIcon() {
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 20 20"
       fill="currentColor"
-      className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400"
+      className="h-4 w-4"
       aria-hidden="true"
     >
       <path
