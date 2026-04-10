@@ -4,7 +4,7 @@ import ProductsCatalog from "./ProductsCatalog";
 export const metadata = {
   title: "Products",
   description:
-    "Complete notebook manufacturing raw materials — binding wires, stitching wires, notebook covers, ledger sheets, OHP sheets, shrink rolls. Wholesale & bulk supply.",
+    "Complete notebook manufacturing raw materials - binding wires, stitching wires, notebook covers, ledger sheets, OHP sheets, shrink rolls. Wholesale & bulk supply.",
 };
 
 export default function ProductsPage() {
@@ -19,7 +19,7 @@ export default function ProductsPage() {
             Our Products
           </h1>
           <p className="mt-2 text-slate-300">
-            Complete notebook manufacturing raw materials — wholesale &amp; bulk supply.
+            Complete notebook manufacturing raw materials - wholesale &amp; bulk supply.
           </p>
         </div>
       </section>

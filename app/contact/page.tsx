@@ -67,22 +67,22 @@ export default function ContactPage() {
               <ol className="flex flex-col gap-3 text-sm text-slate-600">
                 <li className="flex items-start gap-3">
                   <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-teal-50 font-mono text-xs font-bold text-teal-700">1</span>
-                  <span><span className="font-medium text-slate-800">Product and quantity</span> — e.g. Spiral Wire 1/2&quot;, 20 kg</span>
+                  <span><span className="font-medium text-slate-800">Product and quantity</span> - e.g. Spiral Wire 1/2&quot;, 20 kg</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-teal-50 font-mono text-xs font-bold text-teal-700">2</span>
-                  <span><span className="font-medium text-slate-800">Gauge, size, or GSM</span> — e.g. 22 SWG, 100 GSM, A4 Shine</span>
+                  <span><span className="font-medium text-slate-800">Gauge, size, or GSM</span> - e.g. 22 SWG, 100 GSM, A4 Shine</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-teal-50 font-mono text-xs font-bold text-teal-700">3</span>
-                  <span><span className="font-medium text-slate-800">Delivery pincode</span> — or nearest railway junction</span>
+                  <span><span className="font-medium text-slate-800">Delivery pincode</span> - or nearest railway junction</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-teal-50 font-mono text-xs font-bold text-teal-700">4</span>
-                  <span><span className="font-medium text-slate-800">GST number</span> — required for compliant invoice</span>
+                  <span><span className="font-medium text-slate-800">GST number</span> - required for compliant invoice</span>
                 </li>
               </ol>
-              <p className="mt-5 text-xs text-slate-400">No spec sheet? No problem — describe what you make and we&apos;ll recommend the right grade.</p>
+              <p className="mt-5 text-xs text-slate-400">No spec sheet? No problem - describe what you make and we&apos;ll recommend the right grade.</p>
             </div>
             <div className="flex flex-col rounded-2xl border border-slate-100 bg-white p-6 shadow-sm">
               <h3 className="mb-3 text-xs font-semibold uppercase tracking-wider text-slate-400">Sample Message</h3>

@@ -105,7 +105,7 @@ const categories: {
 const whyPoints = [
   {
     title: "Gauge-Verified Every Batch",
-    body: "Wire SWG and sheet GSM verified before dispatch — same gauge, same caliper, same weight every batch. No line stoppages for reject spools or underweight reams.",
+    body: "Wire SWG and sheet GSM verified before dispatch - same gauge, same caliper, same weight every batch. No line stoppages for reject spools or underweight reams.",
     icon: (
       <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z" />
@@ -145,7 +145,7 @@ const orderSteps = [
   {
     step: "01",
     title: "Send Your List",
-    body: "WhatsApp your product list or spec sheet — quantities, gauges, and delivery location.",
+    body: "WhatsApp your product list or spec sheet - quantities, gauges, and delivery location.",
     icon: (
       <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M8.625 9.75a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H8.25m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H12m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0h-.375m-13.5 3.01c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.184-4.183a1.14 1.14 0 0 1 .778-.332 48.294 48.294 0 0 0 5.83-.498c1.585-.233 2.708-1.626 2.708-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0 0 12 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018Z" />
@@ -155,7 +155,7 @@ const orderSteps = [
   {
     step: "02",
     title: "Get Pricing in 2 Hours",
-    body: "We confirm stock and pricing during business hours. No receptionist, no callback — Manoj answers directly.",
+    body: "We confirm stock and pricing during business hours. No receptionist, no callback - Manoj answers directly.",
     icon: (
       <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
@@ -206,7 +206,7 @@ export default function HomePage() {
               style={{ animationDelay: "200ms" }}
             >
               Spiral wires, stitching wires, OHP sheets, 300+ notebook covers,
-              shrink packing rolls, writing paper, PP boards — all in stock.
+              shrink packing rolls, writing paper, PP boards - all in stock.
               One order, one invoice, dispatched same day from Chawri Bazaar, Delhi.
             </p>
             <div
@@ -270,7 +270,7 @@ export default function HomePage() {
             <div className="mb-10 text-center">
               <h2 className="text-2xl font-bold text-slate-900 sm:text-3xl">How to Order</h2>
               <p className="mt-2 text-slate-500">
-                Confirm stock, get pricing, and dispatch — all in under 24 hours.
+                Confirm stock, get pricing, and dispatch - all in under 24 hours.
               </p>
             </div>
           </AnimateIn>
