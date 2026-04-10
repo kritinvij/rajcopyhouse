@@ -33,8 +33,10 @@ const productLines = [
 export default function AboutPage() {
   return (
     <>
-      <section className="bg-slate-800 px-4 py-16 sm:px-6">
-        <div className="mx-auto max-w-6xl">
+      <section className="relative overflow-hidden bg-slate-800 px-4 py-16 sm:px-6">
+        <div className="hero-dot-grid pointer-events-none absolute inset-0" />
+        <div className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full bg-teal-500/20 blur-3xl" />
+        <div className="relative mx-auto max-w-6xl">
           <div className="max-w-2xl">
             <h1 className="text-3xl font-bold text-white sm:text-4xl">About Raj Copy House</h1>
             <p className="mt-4 text-base leading-relaxed text-slate-300">

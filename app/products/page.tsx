@@ -11,8 +11,10 @@ export default function ProductsPage() {
   return (
     <>
       {/* Header */}
-      <section className="bg-slate-900 px-4 py-12 sm:px-6">
-        <div className="mx-auto max-w-6xl">
+      <section className="relative overflow-hidden bg-slate-800 px-4 py-12 sm:px-6">
+        <div className="hero-dot-grid pointer-events-none absolute inset-0" />
+        <div className="pointer-events-none absolute -right-24 -top-16 h-56 w-56 rounded-full bg-teal-500/15 blur-3xl" />
+        <div className="relative mx-auto max-w-6xl">
           <h1 className="text-3xl font-bold text-white sm:text-4xl">
             Our Products
           </h1>
