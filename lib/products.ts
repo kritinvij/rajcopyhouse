@@ -18,6 +18,7 @@ export interface Product {
   description: string;
   specs: ProductSpec[];
   image: string;
+  images?: string[];
   featured: boolean;
 }
 
@@ -46,6 +47,7 @@ export const products: Product[] = [
       { label: "Supply", value: "Wholesale / B2B" },
     ],
     image: "/images/product-binding-wires-photo.jpeg",
+    images: ["/images/stitching-wire-spool.jpeg", "/images/stitching-wire-dark.jpeg"],
     featured: true,
   },
   {
@@ -64,6 +66,7 @@ export const products: Product[] = [
       { label: "Supply", value: "Wholesale / B2B" },
     ],
     image: "/images/product-duracoil.jpeg",
+    images: ["/images/steelbind-spiral-photo.jpeg", "/images/brands-steelbind-duracoil.jpeg"],
     featured: true,
   },
   {
@@ -82,6 +85,7 @@ export const products: Product[] = [
       { label: "Supply", value: "Wholesale / B2B" },
     ],
     image: "/images/rch-catalog-overview.jpeg",
+    images: ["/images/notebook-covers-designs.jpeg"],
     featured: true,
   },
   {
@@ -100,6 +104,7 @@ export const products: Product[] = [
       { label: "Supply", value: "Wholesale / B2B" },
     ],
     image: "/images/product-black-ledger.jpeg",
+    images: ["/images/black-ledger-light.jpeg", "/images/black-ledger-dark.jpeg"],
     featured: true,
   },
   {
@@ -137,6 +142,7 @@ export const products: Product[] = [
       { label: "Supply", value: "Wholesale / B2B" },
     ],
     image: "/images/rch-four-solutions.jpeg",
+    images: ["/images/shrink-packing-roll-2.jpeg"],
     featured: false,
   },
   {
@@ -191,7 +197,28 @@ export const products: Product[] = [
       { label: "Supply", value: "Wholesale / B2B" },
     ],
     image: "/images/product-materials-list-gold.jpeg",
+    images: ["/images/rch-total-solutions-overview.jpeg"],
     featured: true,
+  },
+  {
+    slug: "plastic-spiral-rings",
+    name: "Plastic Spiral Rings",
+    category: "binding-wires",
+    shortDescription:
+      "Flexible PVC spiral rings for school and office notebooks. Available in diameters 8mm to 25mm and multiple colors. Easy to insert, resistant to everyday bending.",
+    description:
+      "Our plastic spiral rings are the go-to binding solution for lightweight school notebooks and office stationery. Made from high-quality flexible PVC, they insert cleanly and hold pages securely without cracking under normal use. Available in a full range of diameters to suit every notebook size, from A6 pocket notebooks to A4 office pads. Custom color orders accepted on bulk quantities.",
+    specs: [
+      { label: "Material", value: "Flexible PVC / polypropylene" },
+      { label: "Diameters", value: "8mm, 10mm, 12mm, 14mm, 16mm, 20mm, 25mm" },
+      { label: "Colors", value: "Black, White, Red, Blue - custom on bulk" },
+      { label: "Pitch", value: "4:1" },
+      { label: "Pack", value: "Per box (quantity varies by diameter) - MOQ 5 boxes per size" },
+      { label: "Supply", value: "Wholesale / B2B" },
+    ],
+    image: "/images/plastic-spiral-coil.jpeg",
+    images: ["/images/plastic-spiral-sizes.jpeg"],
+    featured: false,
   },
 ];
 

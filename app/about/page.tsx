@@ -6,6 +6,44 @@ export const metadata: Metadata = {
   description: "40+ years supplying premium notebook manufacturing raw materials from Chawri Bazaar, Delhi. Meet Manoj Sachdeva and the RCH story.",
 };
 
+const subBrands = [
+  {
+    name: "Duracoil",
+    tagline: "Premium Metal Spiral",
+    description: "Export-quality steel spiral wires. Rust and corrosion resistant coating. Precision wound for bulk notebook production lines.",
+    gradient: "from-blue-950 to-slate-900",
+    accent: "text-blue-400",
+  },
+  {
+    name: "SteelBind",
+    tagline: "Ready to Use Metallic Spiral",
+    description: "Strong, rust-free metallic spirals ready for direct insertion. Precision binding for professional finish on every notebook.",
+    gradient: "from-slate-800 to-slate-950",
+    accent: "text-slate-300",
+  },
+  {
+    name: "Clear Bind",
+    tagline: "Crystal Clear OHP Sheets",
+    description: "Optically clear OHP and DHP front cover sheets. Flat, dimensionally stable, distortion-free across every roll.",
+    gradient: "from-teal-950 to-slate-900",
+    accent: "text-teal-400",
+  },
+  {
+    name: "Pack Bind",
+    tagline: "Shrink Packing Rolls",
+    description: "High-clarity shrink film for professional notebook packaging. Conforms tightly without bubbling for a shelf-ready finish.",
+    gradient: "from-emerald-950 to-slate-900",
+    accent: "text-emerald-400",
+  },
+  {
+    name: "Stitch Bind",
+    tagline: "High-Tensile Stitching Wire",
+    description: "Smooth, consistent wire feed through all stitching heads. Verified gauge every batch. Zero jams, zero rework.",
+    gradient: "from-amber-950 to-slate-900",
+    accent: "text-amber-400",
+  },
+];
+
 const values = [
   {
     title: "Verified Quality",
@@ -123,6 +161,33 @@ export default function AboutPage() {
                 <div className="mb-1 font-semibold text-slate-800">{line.name}</div>
                 <p className="text-sm leading-relaxed text-slate-500">{line.description}</p>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Sub-brands */}
+      <section className="bg-slate-900 px-4 py-16 sm:px-6">
+        <div className="mx-auto max-w-6xl">
+          <AnimateIn>
+            <div className="mb-10">
+              <h2 className="text-2xl font-bold text-white sm:text-3xl">Our Brands</h2>
+              <p className="mt-2 text-slate-400">
+                Each product line under a distinct brand - built for specific manufacturing needs.
+              </p>
+            </div>
+          </AnimateIn>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {subBrands.map((brand, i) => (
+              <AnimateIn key={brand.name} delay={i * 70}>
+                <div className={`rounded-2xl bg-gradient-to-br ${brand.gradient} p-6 border border-white/5`}>
+                  <div className={`text-xl font-bold ${brand.accent}`}>{brand.name}</div>
+                  <div className="mt-0.5 text-xs font-medium uppercase tracking-widest text-slate-500">
+                    {brand.tagline}
+                  </div>
+                  <p className="mt-3 text-sm leading-relaxed text-slate-400">{brand.description}</p>
+                </div>
+              </AnimateIn>
             ))}
           </div>
         </div>

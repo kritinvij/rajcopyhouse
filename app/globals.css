@@ -38,3 +38,21 @@ html {
   background-image: radial-gradient(circle, rgba(148, 163, 184, 0.14) 1px, transparent 1px);
   background-size: 28px 28px;
 }
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 40s linear infinite;
+}
+
+@keyframes wa-pulse {
+  0% { transform: scale(1); opacity: 0.6; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+
+.animate-wa-pulse {
+  animation: wa-pulse 2.5s ease-out infinite;
+}

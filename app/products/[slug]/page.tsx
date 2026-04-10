@@ -3,6 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getProductBySlug, getProductsByCategory, products, categoryLabels } from "@/lib/products";
+import ImageGallery from "@/components/ImageGallery";
+import StickyInquiryBar from "@/components/StickyInquiryBar";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -73,16 +75,11 @@ export default async function ProductDetailPage({ params }: Props) {
       <section className="bg-white px-4 py-10 sm:px-6">
         <div className="mx-auto max-w-6xl">
           <div className="grid gap-10 lg:grid-cols-2 lg:items-start">
-            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-slate-100">
-              <Image
-                src={product.image}
-                alt={product.name}
-                fill
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                priority
-              />
-            </div>
+            <ImageGallery
+              images={[product.image, ...(product.images ?? [])]}
+              alt={product.name}
+              priority
+            />
 
             <div>
               <div className="mb-3">
@@ -184,6 +181,8 @@ export default async function ProductDetailPage({ params }: Props) {
           </div>
         </section>
       )}
+
+      <StickyInquiryBar productName={product.name} />
     </>
   );
 }
