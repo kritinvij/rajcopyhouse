@@ -23,8 +23,10 @@ const marqueeItems = [
   "Pan India Delivery",
   "GST Invoice on Every Order",
   "Wholesale Only · B2B",
-  "Binding Wires · Covers · Sheets · Packaging",
+  "Spiral Wires · Stitching Wires · OHP Sheets · PP Boards",
+  "Notebook Covers · Writing Paper · Shrink Packing",
   "Call Manoj Sachdeva Directly",
+  "Gauge-Verified Every Batch",
 ];
 
 const testimonials = [
@@ -102,8 +104,8 @@ const categories: {
 
 const whyPoints = [
   {
-    title: "Premium Quality",
-    body: "Materials are checked for consistency before dispatch - same spec batch to batch, so your line doesn't stop for rejects.",
+    title: "Gauge-Verified Every Batch",
+    body: "Wire SWG and sheet GSM verified before dispatch — same gauge, same caliper, same weight every batch. No line stoppages for reject spools or underweight reams.",
     icon: (
       <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z" />
@@ -203,9 +205,9 @@ export default function HomePage() {
               className="animate-fade-in-up mt-5 text-lg leading-relaxed text-slate-300"
               style={{ animationDelay: "200ms" }}
             >
-              Since 1984, Raj Copy House has supplied binding wires, notebook covers,
-              ledger sheets, shrink rolls, and more to manufacturers across India.
-              One order. One invoice. Pan India delivery from Chawri Bazaar, Delhi.
+              Spiral wires, stitching wires, OHP sheets, 300+ notebook covers,
+              shrink packing rolls, writing paper, PP boards — all in stock.
+              One order, one invoice, dispatched same day from Chawri Bazaar, Delhi.
             </p>
             <div
               className="animate-fade-in-up mt-8 flex flex-col gap-3 sm:flex-row"

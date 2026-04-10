@@ -36,9 +36,9 @@ export const products: Product[] = [
     name: "Stitching Steel Wires",
     category: "binding-wires",
     shortDescription:
-      "High-tensile steel wires for precise notebook and book stitching. Smooth, consistent feed for all stitching machines.",
+      "Gauge-verified high-tensile steel for saddle and flat stitching machines. Tight SWG tolerance batch-to-batch — smooth, jam-free feed through all standard stitching heads.",
     description:
-      "Our premium stitching steel wires are manufactured to exacting standards for notebook and book production. Sourced from top-grade steel, they offer superior tensile strength, consistent diameter, and a smooth surface finish that ensures trouble-free feeding through stitching machinery. Available in multiple gauges to match all standard stitching heads.",
+      "Wire breaks and feed jams are the two biggest causes of stitching line downtime — both trace back to inconsistent gauge or surface quality. Our stitching wires are held to a tight SWG tolerance with a smooth, burr-free surface that feeds cleanly through every standard stitching head without producing machine debris. Galvanized or bright finish resists corrosion during storage. Same spec every spool — your stitching heads run without constant readjustment between rolls.",
     specs: [
       { label: "Material", value: "High-grade steel" },
       { label: "Finish", value: "Bright / Galvanized" },
@@ -55,9 +55,9 @@ export const products: Product[] = [
     name: "Spiral Binding Wires",
     category: "binding-wires",
     shortDescription:
-      "Export-quality metallic spiral wires. High strength, anti-corrosion coating, and premium finish for professional notebooks.",
+      "Precision-wound export-grade Duracoil steel spirals. Consistent pitch and diameter for smooth insertion on automatic binding machines. Anti-corrosion lacquer finish.",
     description:
-      "Our spiral binding wires are export-quality steel spirals trusted by notebook manufacturers across India. Each coil is precision-wound for consistent pitch and diameter, ensuring smooth insertion and a professional finish. The anti-corrosion coating extends product life, making it ideal for all climate zones.",
+      "Spiral wire consistency determines your line speed. Variable pitch or diameter stalls automatic inserters and adds hidden labour cost per batch. Our Duracoil export-grade spirals are precision-wound to a tight pitch tolerance — automatic binding heads insert without mid-run adjustment. The anti-corrosion lacquer gives a clean gloss finish and protects coils during warehouse storage in all climates. Available in all standard diameters and both 3:1 pitch (up to 125 sheets) and 2:1 pitch (125+ sheets).",
     specs: [
       { label: "Material", value: "Premium steel - export grade" },
       { label: "Properties", value: "Tensile strength: high; Coating: anti-corrosion lacquer; Colors: Black, Silver, White" },
@@ -74,9 +74,9 @@ export const products: Product[] = [
     name: "Ready-Made Notebook Covers",
     category: "covers",
     shortDescription:
-      "300+ designs. Premium quality covers with Mazboot, Shine, and Perfect Finishing options for spiral-bound notebooks.",
+      "300+ designs in stock at Chawri Bazaar — same-day pickup or next-day dispatch. Mazboot (1000 GSM matte), Shine (1000 GSM gloss), Perfect Finishing (1200 GSM soft-touch).",
     description:
-      "With over 300 designs stocked at our Chawri Bazaar warehouse for same-day dispatch. Available in Mazboot (durable matte), Shine (glossy laminated), and Perfect Finishing (soft-touch laminated) variants. Consistent print quality, sharp edges, and bulk availability make these the go-to choice for notebook manufacturers.",
+      "The largest in-stock cover selection in Old Delhi — 300+ designs available immediately for pickup or dispatch. Mazboot (1000 GSM, durable matte lamination) is built for school notebooks that see daily rough use without peeling. Shine (1000 GSM, gloss lamination) gives the retail-ready look used in stationery shops. Perfect Finishing (1200 GSM, soft-touch lamination) is the premium grade for corporate diaries and branded notebooks. All covers are sharp-cut, print-consistent across the stack, and sized for immediate spiral binding.",
     specs: [
       { label: "Designs", value: "300+ in stock" },
       { label: "Variants", value: "Mazboot (1000 gsm, matte) / Shine (1000 gsm, gloss) / Perfect Finishing (1200 gsm, soft-touch)" },
@@ -93,9 +93,9 @@ export const products: Product[] = [
     name: "Black Ledger Quality Sheets",
     category: "sheets",
     shortDescription:
-      "High-GSM black ledger sheets for spiral-bound notebooks. 90-130 GSM options with smooth surface for consistent stack height on automated binding lines.",
+      "Black end-sheets for spiral notebooks. 90-130 GSM options. Consistent caliper ensures uniform stack height on automated binding lines — no page misalignment, no jams.",
     description:
-      "Our Black Ledger Quality Sheets are specifically formulated for spiral-bound notebook production. High GSM ensures the sheets lie flat and resist tearing during binding. The smooth surface accepts ink cleanly, while the consistent thickness delivers a uniform stack height - critical for automated binding lines.",
+      "Black ledger sheets are the end-sheets in spiral notebooks — positioned first and last, they determine how the book lies flat and opens. The right GSM matters: 90 GSM works for school exercise books; 100-130 GSM is specified for A4 notebooks and premium diaries where rigidity is required. Our sheets are manufactured to a consistent caliper across the ream — critical on automated binding lines where variable thickness causes page misalignment and machinery jams. Smooth surface, good ink holdout.",
     specs: [
       { label: "Type", value: "Black ledger / end sheets" },
       { label: "GSM", value: "90 GSM, 100 GSM, 130 GSM" },
@@ -112,9 +112,9 @@ export const products: Product[] = [
     name: "OHP & DHP Sheets",
     category: "sheets",
     shortDescription:
-      "Crystal-clear OHP and DHP sheets for notebook front covers. Consistent thickness, no distortion.",
+      "Crystal-clear front cover sheets for spiral notebooks. OHP (75-100 micron, standard) for school and office notebooks. DHP (100-125 micron, stiffer) for premium diaries.",
     description:
-      "Our OHP (Overhead Projector) and DHP (Double Hard Polypropylene) sheets provide the crystal-clear front cover finish that premium notebooks demand. Manufactured to consistent thickness for smooth binding and a distortion-free view of the notebook cover beneath. Suitable for thermal and cold lamination processes and compatible with all standard comb and spiral binders.",
+      "OHP sheets give spiral notebooks that signature crystal-clear front window over the printed cover. Standard OHP (75-100 micron) is the industry default for school exercise books and office pads — clear, flexible, and cost-effective. DHP (Double Hard Polypropylene, 100-125 micron) is a stiffer grade that holds its shape on premium diaries and won't curl in heat or soften under daily handling pressure. Both grades are manufactured to consistent caliper for clean passage through punching and binding machinery, with zero distortion of the cover design beneath.",
     specs: [
       { label: "Type", value: "Crystal clear OHP / DHP (Double Hard Polypropylene)" },
       { label: "Thickness", value: "75 micron, 100 micron, 125 micron" },
@@ -130,9 +130,9 @@ export const products: Product[] = [
     name: "Shrink Packing Roll",
     category: "packaging",
     shortDescription:
-      "High-quality shrink film rolls for finished notebook packaging. Tight, professional wrap with excellent clarity.",
+      "POF (Polyolefin) heat-shrink film rolls for finished notebook packaging. Uniform shrink, no burn marks, high clarity. Compatible with all standard heat-shrink tunnel machines.",
     description:
-      "Our shrink packing rolls provide the final professional touch to notebook packaging. The high-clarity film shrinks uniformly for a tight, tamper-evident wrap. Suitable for all standard heat-shrink tunnel machines, with consistent roll lengths and widths for uninterrupted production runs.",
+      "POF (Polyolefin) film is the industry standard for notebook shrink packaging — it shrinks more uniformly than PVC and produces a cleaner, tighter wrap without burn marks at the seals. Our rolls are manufactured to consistent width and caliper so your tunnel temperature and speed settings don't need adjustment between rolls. The high-clarity gloss finish shows the notebook cover and barcode clearly through the wrap. Consistent roll lengths for uninterrupted production runs with predictable changeover intervals.",
     specs: [
       { label: "Type", value: "POF heat-shrink film roll" },
       { label: "Thickness", value: "15 micron, 19 micron, 25 micron" },
@@ -150,9 +150,9 @@ export const products: Product[] = [
     name: "Writing Paper",
     category: "sheets",
     shortDescription:
-      "Quality writing paper for notebook interiors. Consistent GSM, smooth surface, suitable for all pen types.",
+      "Maplitho and bond paper for notebook interiors. 60-80 GSM. Smooth surface, no feathering or bleed-through with ballpoint, gel, or fountain pens.",
     description:
-      "Our writing paper is sourced from trusted mills and selected specifically for notebook interior use. Consistent GSM across the roll eliminates weight variance in finished notebooks. The smooth surface works with ballpoint, gel, and fountain pens without feathering or bleed-through.",
+      "Our writing paper is sourced from established Indian mills and selected specifically for notebook interior use. Consistent GSM across the ream eliminates weight variance in finished notebooks — critical when selling by count, not by weight. The smooth maplitho surface accepts ruling print lines sharply and handles ballpoint, gel, and fountain pen inks without feathering or bleed-through. Available plain or with standard ruling (single-line, double-line) in A4 and A5 sizes.",
     specs: [
       { label: "Grade", value: "Maplitho / Bond" },
       { label: "Format", value: "Plain / Single-ruled / Double-ruled" },
@@ -169,9 +169,9 @@ export const products: Product[] = [
     name: "Black PP Sheets",
     category: "sheets",
     shortDescription:
-      "Premium black polypropylene sheets for rigid notebook back covers and protective dividers.",
+      "Virgin PP back cover boards for spiral notebooks. 0.3-1.0mm, moisture-resistant, lightweight. Won't warp on damp surfaces — standard spec for A4 and A5 notebook manufacturing.",
     description:
-      "Black PP (polypropylene) sheets are the preferred material for hard back covers and protective inserts in premium spiral notebooks. Rigid yet lightweight, they resist moisture and provide structural support. Available in standard thicknesses compatible with all spiral binding machinery.",
+      "Black PP (polypropylene) sheets are the structural back cover in premium spiral notebooks. PP is preferred over cardboard back covers because it is moisture-resistant and dimensionally stable — notebooks left on damp surfaces don't warp. Lightweight compared to equivalent-strength board, it keeps finished notebook weight down. Available from 0.3mm (flexible, for A6 pocket notebooks) to 1.0mm (rigid, for A4 office notebooks). All sheets are virgin polypropylene for consistent mechanical properties and clean-cut edges without delamination.",
     specs: [
       { label: "Material", value: "Virgin polypropylene (PP), moisture-resistant" },
       { label: "Color", value: "Black" },
@@ -187,7 +187,7 @@ export const products: Product[] = [
     name: "Complete Raw Material Kit",
     category: "complete-kits",
     shortDescription:
-      "Everything you need to manufacture notebooks in one order. Spiral wires, stitching wire, covers, sheets, and packaging.",
+      "All notebook manufacturing inputs in one order — wires, covers, sheets, OHP, shrink packing. One supplier, one invoice, one dispatch. Same-day from Delhi.",
     description:
       "Raj Copy House is your one-stop supplier for all notebook manufacturing raw materials. Our complete kits include spiral binding wires, stitching wires, ready-made covers, ledger sheets, OHP sheets, writing paper, and shrink packaging - all sourced, quality-checked, and delivered together. One supplier, one invoice, one point of contact.",
     specs: [
@@ -205,7 +205,7 @@ export const products: Product[] = [
     name: "Plastic Spiral Rings",
     category: "binding-wires",
     shortDescription:
-      "Flexible PVC spiral rings for school and office notebooks. Available in diameters 8mm to 25mm and multiple colors. Easy to insert, resistant to everyday bending.",
+      "Flexible PVC spiral rings for school and office notebooks. 4:1 pitch, 8-25mm diameters. Available in Black, White, Red, Blue. Suitable for manual and automatic insertion.",
     description:
       "Our plastic spiral rings are the go-to binding solution for lightweight school notebooks and office stationery. Made from high-quality flexible PVC, they insert cleanly and hold pages securely without cracking under normal use. Available in a full range of diameters to suit every notebook size, from A6 pocket notebooks to A4 office pads. Custom color orders accepted on bulk quantities.",
     specs: [

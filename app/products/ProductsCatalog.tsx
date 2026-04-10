@@ -18,6 +18,7 @@ export default function ProductsCatalog() {
   const searchParams = useSearchParams();
   const [activeCategory, setActiveCategory] = useState<ProductCategory | "all">("all");
   const [query, setQuery] = useState("");
+  const [inputValue, setInputValue] = useState("");
   const [fading, setFading] = useState(false);
   const fadeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -39,8 +40,15 @@ export default function ProductsCatalog() {
     triggerFade(() => setActiveCategory(cat));
   };
 
+  // Search updates instantly - no fade so products stay visible while typing
   const handleSearch = (value: string) => {
-    triggerFade(() => setQuery(value));
+    setInputValue(value);
+    setQuery(value);
+  };
+
+  const handleClear = () => {
+    setInputValue("");
+    setQuery("");
   };
 
   const filtered = products.filter((p) => {
@@ -66,15 +74,15 @@ export default function ProductsCatalog() {
               <SearchIcon />
               <input
                 type="text"
-                defaultValue=""
+                value={inputValue}
                 onChange={(e) => handleSearch(e.target.value)}
                 placeholder="Search products..."
                 className="w-full rounded-full border border-slate-200 bg-slate-50 py-1.5 pl-9 pr-8 text-sm text-slate-700 placeholder:text-slate-400 focus:border-teal-400 focus:outline-none focus:ring-1 focus:ring-teal-400"
                 aria-label="Search products"
               />
-              {query && (
+              {inputValue && (
                 <button
-                  onClick={() => handleSearch("")}
+                  onClick={handleClear}
                   aria-label="Clear search"
                   className="absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer text-slate-400 hover:text-slate-600"
                 >
@@ -136,7 +144,7 @@ export default function ProductsCatalog() {
                   No products found{query ? ` for "${query}"` : ""}.
                 </p>
                 <button
-                  onClick={() => handleSearch("")}
+                  onClick={handleClear}
                   className="mt-3 cursor-pointer text-sm text-teal-600 hover:underline"
                 >
                   Clear search
