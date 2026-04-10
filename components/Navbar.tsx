@@ -18,11 +18,10 @@ export default function Navbar() {
     <header className="sticky top-0 z-40 bg-slate-800">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3.5 sm:px-6">
         <Link href="/" className="flex items-center gap-2.5" onClick={() => setMenuOpen(false)}>
-          <svg width="38" height="38" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <circle cx="20" cy="20" r="19" fill="#0d9488"/>
-            <circle cx="20" cy="20" r="18.2" fill="none" stroke="white" strokeWidth="0.9" opacity="0.35"/>
-            <circle cx="20" cy="20" r="12" fill="none" stroke="white" strokeWidth="0.7" opacity="0.35"/>
-            <text x="20" y="20" textAnchor="middle" dominantBaseline="central" fontFamily="Georgia, serif" fontSize="9.5" fontWeight="bold" fill="white" letterSpacing="0.5">RCH</text>
+          <svg width="38" height="38" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect width="48" height="48" rx="10" fill="#0d9488"/>
+            <text x="10" y="37" fontFamily="Georgia, serif" fontSize="31" fontWeight="bold" fill="white">R</text>
+            <line x1="26" y1="27" x2="39" y2="43" stroke="white" strokeWidth="5" strokeLinecap="round" opacity="0.35"/>
           </svg>
           <div className="leading-tight">
             <div className="text-sm font-semibold text-white">Raj Copy House</div>
