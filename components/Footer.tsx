@@ -73,7 +73,25 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-10 pt-6 text-center text-xs text-slate-500">
+        {/* Trust badges */}
+        <div className="mt-10 flex flex-wrap justify-center gap-2 border-t border-slate-700/60 pt-8">
+          {[
+            "Wholesale / B2B Only",
+            "GST Invoice on Every Order",
+            "Same-Day Dispatch from Delhi",
+            "Pan India Delivery",
+            "40+ Years in Business",
+          ].map((badge) => (
+            <span
+              key={badge}
+              className="rounded-full border border-slate-700 px-3 py-1 text-xs text-slate-500"
+            >
+              {badge}
+            </span>
+          ))}
+        </div>
+
+        <div className="mt-5 text-center text-xs text-slate-600">
           &copy; {new Date().getFullYear()} Raj Copy House. All rights reserved.
         </div>
       </div>

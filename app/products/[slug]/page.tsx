@@ -142,10 +142,6 @@ export default async function ProductDetailPage({ params }: Props) {
                 </a>
               </div>
 
-              <div className="mt-4 rounded-xl bg-teal-50 px-4 py-3 text-sm text-teal-800">
-                <span className="font-semibold">Wholesale available.</span> Share your
-                requirements and delivery location for bulk pricing.
-              </div>
             </div>
           </div>
         </div>
