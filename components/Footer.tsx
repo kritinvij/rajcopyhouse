@@ -11,14 +11,17 @@ const productLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-slate-900 text-slate-300">
+    <footer className="bg-slate-800 text-slate-300">
       <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           <div className="lg:col-span-2">
             <div className="mb-3 flex items-center gap-2">
-              <div className="flex h-8 w-8 items-center justify-center rounded-md bg-teal-500 text-xs font-black text-white">
-                RCH
-              </div>
+              <svg width="34" height="34" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <circle cx="20" cy="20" r="19" fill="#0d9488"/>
+                <circle cx="20" cy="20" r="18.2" fill="none" stroke="white" strokeWidth="0.9" opacity="0.35"/>
+                <circle cx="20" cy="20" r="12" fill="none" stroke="white" strokeWidth="0.7" opacity="0.35"/>
+                <text x="20" y="20" textAnchor="middle" dominantBaseline="central" fontFamily="Georgia, serif" fontSize="9.5" fontWeight="bold" fill="white" letterSpacing="0.5">RCH</text>
+              </svg>
               <div>
                 <div className="font-bold text-white">Raj Copy House</div>
                 <div className="text-xs text-slate-400">Total Solutions</div>
@@ -71,7 +74,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-10 border-t border-slate-800 pt-6 text-center text-xs text-slate-500">
+        <div className="mt-10 pt-6 text-center text-xs text-slate-500">
           &copy; {new Date().getFullYear()} Raj Copy House. All rights reserved.
         </div>
       </div>

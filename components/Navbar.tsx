@@ -15,14 +15,14 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-40 bg-slate-950">
+    <header className="sticky top-0 z-40 bg-slate-800">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3.5 sm:px-6">
         <Link href="/" className="flex items-center gap-2.5" onClick={() => setMenuOpen(false)}>
           <svg width="38" height="38" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <circle cx="20" cy="20" r="19" fill="#1e293b"/>
-            <circle cx="20" cy="20" r="18.2" fill="none" stroke="#14b8a6" strokeWidth="0.9"/>
-            <circle cx="20" cy="20" r="12" fill="none" stroke="#14b8a6" strokeWidth="0.7"/>
-            <text x="20" y="20" textAnchor="middle" dominantBaseline="central" fontFamily="Georgia, serif" fontSize="9.5" fontWeight="bold" fill="#14b8a6" letterSpacing="0.5">RCH</text>
+            <circle cx="20" cy="20" r="19" fill="#0d9488"/>
+            <circle cx="20" cy="20" r="18.2" fill="none" stroke="white" strokeWidth="0.9" opacity="0.35"/>
+            <circle cx="20" cy="20" r="12" fill="none" stroke="white" strokeWidth="0.7" opacity="0.35"/>
+            <text x="20" y="20" textAnchor="middle" dominantBaseline="central" fontFamily="Georgia, serif" fontSize="9.5" fontWeight="bold" fill="white" letterSpacing="0.5">RCH</text>
           </svg>
           <div className="leading-tight">
             <div className="text-sm font-semibold text-white">Raj Copy House</div>
@@ -60,7 +60,7 @@ export default function Navbar() {
         </div>
 
         <button
-          className="flex h-9 w-9 items-center justify-center rounded-lg text-slate-400 hover:bg-slate-800 hover:text-white md:hidden"
+          className="flex h-9 w-9 items-center justify-center rounded-lg text-slate-400 hover:bg-slate-700 hover:text-white md:hidden"
           onClick={() => setMenuOpen((o) => !o)}
           aria-label="Toggle menu"
           aria-expanded={menuOpen}
@@ -70,25 +70,25 @@ export default function Navbar() {
       </div>
 
       {menuOpen && (
-        <div className="border-t border-slate-800 bg-slate-950 px-4 pb-4 md:hidden">
+        <div className="bg-slate-800 px-4 pb-4 md:hidden">
           <nav className="flex flex-col gap-1 pt-2">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 onClick={() => setMenuOpen(false)}
-                className={`rounded-lg px-3 py-2.5 text-sm font-medium transition-colors hover:bg-slate-800 ${
-                  pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href)) ? "text-white bg-slate-800" : "text-slate-300"
+                className={`rounded-lg px-3 py-2.5 text-sm font-medium transition-colors hover:bg-slate-700 ${
+                  pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href)) ? "text-white bg-slate-700" : "text-slate-300"
                 }`}
               >
                 {link.label}
               </Link>
             ))}
           </nav>
-          <div className="mt-3 flex flex-col gap-2 border-t border-slate-800 pt-3">
+          <div className="mt-3 flex flex-col gap-2 pt-2">
             <a
               href="tel:+919810035108"
-              className="flex items-center justify-center gap-2 rounded-lg border border-slate-700 py-2.5 text-sm font-medium text-slate-300"
+              className="flex items-center justify-center gap-2 rounded-lg bg-slate-700 py-2.5 text-sm font-medium text-slate-300"
               onClick={() => setMenuOpen(false)}
             >
               <PhoneIcon />

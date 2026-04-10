@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <>
-      <section className="bg-slate-950 px-4 py-16 sm:px-6">
+      <section className="bg-slate-800 px-4 py-16 sm:px-6">
         <div className="mx-auto max-w-6xl">
           <div className="max-w-xl">
             <h1 className="text-3xl font-bold text-white sm:text-4xl">Get in Touch</h1>
@@ -41,7 +41,7 @@ export default function ContactPage() {
               <div className="mb-1 text-xs font-semibold uppercase tracking-wider text-green-200">WhatsApp</div>
               <div className="mb-2 text-2xl font-bold">+91 98100 35108</div>
               <p className="mb-6 flex-1 text-sm leading-relaxed text-green-100">
-                Send your product list and quantities. We respond quickly.
+                Send your product list - get a quote within 2 hours during business hours.
               </p>
               <a
                 href="https://wa.me/919810035108"
@@ -106,7 +106,7 @@ export default function ContactPage() {
           <div className="overflow-hidden rounded-2xl">
             <iframe
               title="Raj Copy House location - Chawri Bazaar, Delhi"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3501.5!2d77.2297!3d28.6527!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd9e1b1b1b1b%3A0x1!2sChawri+Bazaar%2C+Delhi!5e0!3m2!1sen!2sin!4v1"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3501.588!2d77.22683!3d28.65264!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd37e5ca2b05%3A0x9e3631bda9e90d73!2sChawri%20Bazaar%2C%20Delhi!5e0!3m2!1sen!2sin!4v1681547200000!5m2!1sen!2sin"
               width="100%"
               height="320"
               style={{ border: 0 }}

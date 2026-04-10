@@ -1,10 +1,11 @@
 import Link from "next/link";
 import Image from "next/image";
 import { getFeaturedProducts, categoryLabels, type ProductCategory } from "@/lib/products";
+import AnimateIn from "@/components/AnimateIn";
 
 const stats = [
   { value: "40+", label: "Years in Business" },
-  { value: "1 Trillion+", label: "Notebook Covers Sold" },
+  { value: "1 Trillion+", label: "Covers Supplied Across India" },
   { value: "300+", label: "Cover Designs" },
   { value: "Pan India", label: "Delivery" },
 ];
@@ -51,8 +52,8 @@ const whyPoints = [
     body: "Reliable bulk delivery to manufacturers across every state. Fast dispatch from Chawri Bazaar, Delhi.",
   },
   {
-    title: "Wholesale Pricing",
-    body: "Competitive wholesale rates with bulk pricing. Call or WhatsApp us with your requirements.",
+    title: "GST Invoice on Every Order",
+    body: "Full GST-compliant invoices with every shipment. Claim your input tax credit without chasing paperwork.",
   },
 ];
 
@@ -62,15 +63,15 @@ export default function HomePage() {
   return (
     <>
       {/* Hero - flush with dark navbar */}
-      <section className="bg-slate-950 px-4 pb-20 pt-16 sm:px-6 sm:pb-28 sm:pt-24">
+      <section className="bg-slate-800 px-4 pb-20 pt-16 sm:px-6 sm:pb-28 sm:pt-24">
         <div className="mx-auto max-w-6xl">
           <div className="max-w-2xl">
             <div className="mb-5 inline-block rounded-full border border-teal-500/30 bg-teal-500/10 px-3 py-1 text-xs font-medium text-teal-300">
               Trusted by notebook manufacturers across India
             </div>
             <h1 className="mb-3 text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">
-              Complete Notebook<br />
-              <span className="text-teal-400">Manufacturing</span> Solutions
+              40 Years. Delhi.<br />
+              <span className="text-teal-400">Every Raw Material</span> You Need.
             </h1>
             <p className="mb-1 text-sm italic text-slate-500">
               नोटबुक उद्योग का सम्पूर्ण समाधान
@@ -102,15 +103,17 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Stats - no border, floats below hero */}
+      {/* Stats */}
       <section className="bg-white px-4 py-10 sm:px-6">
         <div className="mx-auto max-w-6xl">
           <div className="grid grid-cols-2 gap-6 lg:grid-cols-4">
-            {stats.map((stat) => (
-              <div key={stat.label} className="text-center">
-                <div className="text-3xl font-bold text-slate-900 sm:text-4xl">{stat.value}</div>
-                <div className="mt-1 text-sm text-slate-400">{stat.label}</div>
-              </div>
+            {stats.map((stat, i) => (
+              <AnimateIn key={stat.label} delay={i * 80}>
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-slate-900 sm:text-4xl">{stat.value}</div>
+                  <div className="mt-1 text-sm text-slate-400">{stat.label}</div>
+                </div>
+              </AnimateIn>
             ))}
           </div>
         </div>
@@ -124,24 +127,27 @@ export default function HomePage() {
             <p className="mt-2 text-slate-500">Everything you need for notebook manufacturing, from one supplier.</p>
           </div>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {categories.map((cat) => (
-              <Link
-                key={cat.category}
-                href={`/products?category=${cat.category}`}
-                className="group flex flex-col gap-3 rounded-2xl bg-white p-6 shadow-sm transition-shadow hover:shadow-md"
-              >
-                <h3 className="font-semibold text-slate-900 group-hover:text-teal-700">{cat.label}</h3>
-                <p className="flex-1 text-sm leading-relaxed text-slate-500">{cat.description}</p>
-                <span className="text-xs font-medium text-teal-600 group-hover:underline">View products &rarr;</span>
-              </Link>
+            {categories.map((cat, i) => (
+              <AnimateIn key={cat.category} delay={i * 60}>
+                <Link
+                  href={`/products?category=${cat.category}`}
+                  className="group flex h-full flex-col gap-3 rounded-2xl bg-white p-6 shadow-sm transition-all hover:shadow-md hover:-translate-y-0.5"
+                >
+                  <h3 className="font-semibold text-slate-900 group-hover:text-teal-700">{cat.label}</h3>
+                  <p className="flex-1 text-sm leading-relaxed text-slate-500">{cat.description}</p>
+                  <span className="text-xs font-medium text-teal-600 group-hover:underline">View products &rarr;</span>
+                </Link>
+              </AnimateIn>
             ))}
-            <Link
-              href="/products"
-              className="group flex flex-col items-center justify-center gap-2 rounded-2xl bg-white p-6 text-center shadow-sm transition-shadow hover:shadow-md"
-            >
-              <span className="font-semibold text-slate-700 group-hover:text-teal-700">View Full Catalog</span>
-              <span className="text-xs text-slate-400">All products &rarr;</span>
-            </Link>
+            <AnimateIn delay={categories.length * 60}>
+              <Link
+                href="/products"
+                className="group flex h-full flex-col items-center justify-center gap-2 rounded-2xl bg-white p-6 text-center shadow-sm transition-all hover:shadow-md hover:-translate-y-0.5"
+              >
+                <span className="font-semibold text-slate-700 group-hover:text-teal-700">View Full Catalog</span>
+                <span className="text-xs text-slate-400">All products &rarr;</span>
+              </Link>
+            </AnimateIn>
           </div>
         </div>
       </section>
@@ -187,7 +193,7 @@ export default function HomePage() {
       )}
 
       {/* Why RCH */}
-      <section className="bg-slate-900 px-4 py-16 sm:px-6 sm:py-20">
+      <section className="bg-slate-800 px-4 py-16 sm:px-6 sm:py-20">
         <div className="mx-auto max-w-6xl">
           <div className="mb-10">
             <h2 className="text-3xl font-bold text-white">Why Choose RCH?</h2>

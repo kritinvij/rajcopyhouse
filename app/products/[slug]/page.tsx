@@ -45,7 +45,6 @@ export default async function ProductDetailPage({ params }: Props) {
     offers: {
       "@type": "Offer",
       availability: "https://schema.org/InStock",
-      priceCurrency: "INR",
       seller: {
         "@type": "Organization",
         name: "Raj Copy House",
@@ -110,7 +109,7 @@ export default async function ProductDetailPage({ params }: Props) {
                   className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-teal-500 px-5 py-3.5 text-sm font-semibold text-white transition-opacity hover:opacity-90"
                 >
                   <WhatsAppIcon />
-                  Enquire on WhatsApp
+                  Request Bulk Price
                 </a>
                 <a
                   href="tel:+919810035108"

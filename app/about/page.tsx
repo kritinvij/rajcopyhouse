@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import AnimateIn from "@/components/AnimateIn";
 
 export const metadata: Metadata = {
   title: "About",
@@ -7,16 +8,16 @@ export const metadata: Metadata = {
 
 const values = [
   {
-    title: "Quality",
-    description: "Every product leaving our warehouse is inspected to ensure it meets the demands of professional notebook production lines.",
+    title: "Verified Quality",
+    description: "Wire gauge tolerance held to within standard SWG. Sheet GSM verified per batch. Every product leaving our warehouse meets the demands of professional notebook production lines.",
   },
   {
-    title: "Consistency",
-    description: "Uniform wire diameters, consistent sheet weights, stable supply - so your production runs never stop because of material variance.",
+    title: "Same-Day Dispatch",
+    description: "Orders confirmed before 2 PM ship the same day from Chawri Bazaar. Uniform wire diameters and consistent sheet weights so your production line never stops.",
   },
   {
-    title: "Commitment",
-    description: "40+ years of showing up for manufacturers across India. We treat your supply chain as our responsibility.",
+    title: "GST Invoice on Every Order",
+    description: "Full GST-compliant invoices provided with every shipment - essential for manufacturers claiming input tax credit. 40+ years, zero compromise on documentation.",
   },
 ];
 
@@ -32,7 +33,7 @@ const productLines = [
 export default function AboutPage() {
   return (
     <>
-      <section className="bg-slate-950 px-4 py-16 sm:px-6">
+      <section className="bg-slate-800 px-4 py-16 sm:px-6">
         <div className="mx-auto max-w-6xl">
           <div className="max-w-2xl">
             <h1 className="text-3xl font-bold text-white sm:text-4xl">About Raj Copy House</h1>
@@ -75,9 +76,9 @@ export default function AboutPage() {
             <div className="rounded-2xl bg-slate-900 p-8 text-white">
               <div className="mb-3 text-5xl font-bold text-teal-400">1 Trillion+</div>
               <div className="mb-6 text-lg text-slate-300">
-                Notebook covers sold in the last 40 years.
+                Notebook covers supplied across manufacturers in 40+ years.
               </div>
-              <div className="border-t border-slate-700 pt-6">
+              <div className="pt-6">
                 <div className="font-semibold text-white">Manoj Sachdeva</div>
                 <div className="text-sm text-slate-400">Proprietor, Raj Copy House</div>
                 <div className="mt-3 text-sm leading-relaxed text-slate-300">
@@ -97,11 +98,13 @@ export default function AboutPage() {
         <div className="mx-auto max-w-6xl">
           <h2 className="mb-10 text-2xl font-bold text-slate-900 sm:text-3xl">Our Values</h2>
           <div className="grid gap-6 sm:grid-cols-3">
-            {values.map((v) => (
-              <div key={v.title} className="rounded-2xl bg-white p-6 shadow-sm">
-                <div className="mb-2 text-lg font-bold text-teal-700">{v.title}</div>
-                <p className="text-sm leading-relaxed text-slate-500">{v.description}</p>
-              </div>
+            {values.map((v, i) => (
+              <AnimateIn key={v.title} delay={i * 80}>
+                <div className="rounded-2xl bg-white p-6 shadow-sm">
+                  <div className="mb-2 text-lg font-bold text-teal-700">{v.title}</div>
+                  <p className="text-sm leading-relaxed text-slate-500">{v.description}</p>
+                </div>
+              </AnimateIn>
             ))}
           </div>
         </div>
