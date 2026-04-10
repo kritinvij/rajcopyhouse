@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { getFeaturedProducts, type ProductCategory } from "@/lib/products";
+import { getFeaturedProducts, categoryLabels, type ProductCategory } from "@/lib/products";
 import AnimateIn from "@/components/AnimateIn";
 
 const stats = [
@@ -193,66 +193,125 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── Product Categories ────────────────────── */}
-      <section className="bg-stone-50 px-4 py-16 sm:px-6 sm:py-20">
+      {/* ── Product Lines Navigator ───────────────── */}
+      <section className="border-y border-slate-100 bg-white px-4 py-0 sm:px-6">
         <div className="mx-auto max-w-6xl">
           <AnimateIn>
-            <div className="mb-10">
-              <h2 className="text-3xl font-bold text-slate-900">Our Products</h2>
-              <p className="mt-2 text-slate-500">Everything you need for notebook manufacturing, from one supplier.</p>
-            </div>
-          </AnimateIn>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {categories.map((cat, i) => (
-              <AnimateIn key={cat.category} delay={i * 60}>
+            <div className="grid divide-y divide-slate-100 sm:grid-cols-5 sm:divide-x sm:divide-y-0">
+              {categories.map((cat, i) => (
                 <Link
+                  key={cat.category}
                   href={`/products?category=${cat.category}`}
-                  className="group relative flex h-full flex-col gap-3 overflow-hidden rounded-2xl bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md"
+                  className="group flex flex-col gap-2.5 px-0 py-6 transition-colors sm:px-6 sm:first:pl-0 sm:last:pr-0 hover:bg-transparent"
                 >
-                  {/* top accent bar */}
-                  <div className="absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r from-teal-400 to-teal-600 opacity-0 transition-opacity duration-300 group-hover:opacity-100 rounded-t-2xl" />
-                  <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-teal-50 text-teal-600 transition-colors group-hover:bg-teal-500 group-hover:text-white">
+                  <span className="font-mono text-xs text-slate-300">0{i + 1}</span>
+                  <div className="flex h-8 w-8 items-center justify-center text-teal-500 transition-transform duration-200 group-hover:scale-110">
                     {cat.icon}
                   </div>
-                  <h3 className="font-semibold text-slate-900 transition-colors group-hover:text-teal-700">{cat.label}</h3>
-                  <p className="flex-1 text-sm leading-relaxed text-slate-500">{cat.description}</p>
-                  <span className="text-xs font-medium text-teal-600 transition-all group-hover:translate-x-0.5 group-hover:underline inline-block">
-                    View products &rarr;
+                  <span className="text-sm font-semibold text-slate-800 transition-colors group-hover:text-teal-700 leading-snug">
+                    {cat.label}
+                  </span>
+                  <span className="text-xs text-slate-400 transition-all group-hover:text-teal-500 group-hover:translate-x-0.5 inline-block">
+                    View &rarr;
                   </span>
                 </Link>
-              </AnimateIn>
-            ))}
-            <AnimateIn delay={categories.length * 60}>
-              <Link
-                href="/products"
-                className="group flex h-full flex-col items-center justify-center gap-2 rounded-2xl border-2 border-dashed border-slate-200 p-6 text-center transition-all duration-300 hover:border-teal-300 hover:bg-teal-50/50"
-              >
-                <span className="font-semibold text-slate-500 transition-colors group-hover:text-teal-700">View Full Catalog</span>
-                <span className="text-xs text-slate-400 transition-all group-hover:translate-x-0.5 inline-block">All products &rarr;</span>
-              </Link>
-            </AnimateIn>
-          </div>
+              ))}
+            </div>
+          </AnimateIn>
         </div>
       </section>
 
       {/* ── Featured Products ─────────────────────── */}
       {featured.length > 0 && (
-        <section className="bg-white px-4 py-16 sm:px-6 sm:py-20">
+        <section className="bg-stone-50 px-4 py-16 sm:px-6 sm:py-20">
           <div className="mx-auto max-w-6xl">
             <AnimateIn>
-              <div className="mb-10">
-                <h2 className="text-3xl font-bold text-slate-900">Featured Products</h2>
-                <p className="mt-2 text-slate-500">Our most popular raw materials for notebook manufacturers.</p>
+              <div className="mb-8 flex items-end justify-between">
+                <div>
+                  <h2 className="text-3xl font-bold text-slate-900">Featured Products</h2>
+                  <p className="mt-1.5 text-slate-500">Most popular raw materials for notebook manufacturers.</p>
+                </div>
+                <Link
+                  href="/products"
+                  className="hidden text-sm font-medium text-teal-600 transition-colors hover:text-teal-800 sm:block"
+                >
+                  All products &rarr;
+                </Link>
               </div>
             </AnimateIn>
+
+            {/* Hero card - first featured product */}
+            {featured[0] && (
+              <AnimateIn>
+                <div className="group mb-5 overflow-hidden rounded-2xl bg-white shadow-sm transition-shadow duration-300 hover:shadow-md">
+                  <div className="grid lg:grid-cols-2">
+                    <Link
+                      href={`/products/${featured[0].slug}`}
+                      className="relative block aspect-[4/3] overflow-hidden bg-slate-100 lg:aspect-auto lg:min-h-[320px]"
+                    >
+                      <Image
+                        src={featured[0].image}
+                        alt={featured[0].name}
+                        fill
+                        className="object-cover transition-transform duration-700 group-hover:scale-105"
+                        sizes="(max-width: 1024px) 100vw, 50vw"
+                        priority
+                      />
+                    </Link>
+                    <div className="flex flex-col justify-center p-8 lg:p-10">
+                      <span className="text-xs font-semibold uppercase tracking-wider text-teal-600">
+                        {categoryLabels[featured[0].category]}
+                      </span>
+                      <Link href={`/products/${featured[0].slug}`}>
+                        <h3 className="mt-2 text-2xl font-bold text-slate-900 transition-colors hover:text-teal-700 lg:text-3xl">
+                          {featured[0].name}
+                        </h3>
+                      </Link>
+                      <p className="mt-3 text-base leading-relaxed text-slate-500">
+                        {featured[0].shortDescription}
+                      </p>
+                      <div className="mt-4 flex flex-wrap gap-2">
+                        {featured[0].specs.slice(0, 2).map((spec) => (
+                          <span
+                            key={spec.label}
+                            className="rounded-md border border-slate-100 bg-stone-50 px-2.5 py-1 text-xs text-slate-500"
+                          >
+                            <span className="font-semibold text-slate-700">{spec.label}:</span>{" "}
+                            {spec.value.length > 30 ? spec.value.slice(0, 30) + "…" : spec.value}
+                          </span>
+                        ))}
+                      </div>
+                      <div className="mt-6 flex gap-3">
+                        <a
+                          href={`https://wa.me/919810035108?text=${encodeURIComponent(`Hi, I need ${featured[0].name} for a bulk order. Please share pricing.`)}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="rounded-xl bg-teal-500 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-teal-600"
+                        >
+                          WhatsApp for Price
+                        </a>
+                        <Link
+                          href={`/products/${featured[0].slug}`}
+                          className="flex items-center text-sm font-medium text-slate-500 transition-colors hover:text-teal-600"
+                        >
+                          View details &rarr;
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </AnimateIn>
+            )}
+
+            {/* Remaining featured products */}
             <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-              {featured.map((product, i) => (
+              {featured.slice(1).map((product, i) => (
                 <AnimateIn key={product.slug} delay={i * 60}>
                   <Link
                     href={`/products/${product.slug}`}
                     className="group overflow-hidden rounded-2xl bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md"
                   >
-                    <div className="relative aspect-video overflow-hidden bg-slate-100">
+                    <div className="relative aspect-[4/3] overflow-hidden bg-slate-100">
                       <Image
                         src={product.image}
                         alt={product.name}
@@ -260,10 +319,15 @@ export default function HomePage() {
                         className="object-cover transition-transform duration-500 group-hover:scale-105"
                         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-slate-900/50 via-slate-900/10 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                     </div>
                     <div className="p-5">
-                      <h3 className="font-semibold text-slate-900 transition-colors group-hover:text-teal-700">{product.name}</h3>
+                      <span className="text-xs font-semibold text-teal-600 uppercase tracking-wide">
+                        {categoryLabels[product.category]}
+                      </span>
+                      <h3 className="mt-1 font-semibold text-slate-900 transition-colors group-hover:text-teal-700">
+                        {product.name}
+                      </h3>
                       <p className="mt-1.5 line-clamp-2 text-sm leading-relaxed text-slate-500">
                         {product.shortDescription}
                       </p>
@@ -275,11 +339,17 @@ export default function HomePage() {
                 </AnimateIn>
               ))}
             </div>
+
+            <div className="mt-6 sm:hidden">
+              <Link href="/products" className="block rounded-xl border border-slate-200 py-3 text-center text-sm font-medium text-slate-600 hover:border-teal-200 hover:text-teal-700">
+                Browse all products &rarr;
+              </Link>
+            </div>
           </div>
         </section>
       )}
 
-      {/* ── Why RCH ──────────────────────────────── */}
+            {/* ── Why RCH ──────────────────────────────── */}
       <section className="relative overflow-hidden bg-slate-800 px-4 py-20 sm:px-6 sm:py-24">
         {/* wave top - bites into section from white above */}
         <div className="pointer-events-none absolute left-0 right-0 top-0 leading-[0]">
