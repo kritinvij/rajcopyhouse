@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getProductBySlug, getProductsByCategory, products } from "@/lib/products";
+import { getProductBySlug, getProductsByCategory, products, categoryLabels } from "@/lib/products";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -85,14 +85,39 @@ export default async function ProductDetailPage({ params }: Props) {
             </div>
 
             <div>
+              <div className="mb-3">
+                <span className="rounded-full bg-teal-50 px-3 py-1 text-xs font-semibold text-teal-700">
+                  {categoryLabels[product.category]}
+                </span>
+              </div>
               <h1 className="text-2xl font-bold text-slate-900 sm:text-3xl">{product.name}</h1>
               <p className="mt-4 text-base leading-relaxed text-slate-600">{product.description}</p>
 
-              <div className="mt-6 overflow-hidden rounded-xl bg-stone-50">
+              {/* Trust strip */}
+              <div className="mt-5 flex flex-wrap gap-2">
+                {[
+                  "Wholesale / B2B",
+                  "GST Invoice Included",
+                  "Same-Day Dispatch Available",
+                ].map((badge) => (
+                  <span
+                    key={badge}
+                    className="flex items-center gap-1.5 rounded-full border border-teal-200 bg-teal-50 px-3 py-1 text-xs font-medium text-teal-700"
+                  >
+                    <span className="h-1.5 w-1.5 rounded-full bg-teal-500" />
+                    {badge}
+                  </span>
+                ))}
+              </div>
+
+              <div className="mt-6 overflow-hidden rounded-xl border border-slate-100 bg-white">
+                <div className="border-b border-slate-100 bg-stone-50 px-4 py-2.5">
+                  <span className="text-xs font-semibold uppercase tracking-wider text-slate-500">Specifications</span>
+                </div>
                 <table className="w-full text-sm">
                   <tbody>
                     {product.specs.map((spec, i) => (
-                      <tr key={spec.label} className={i % 2 === 0 ? "bg-stone-50" : "bg-white"}>
+                      <tr key={spec.label} className={`border-b border-slate-50 last:border-0 ${i % 2 === 0 ? "" : "bg-stone-50/50"}`}>
                         <td className="w-2/5 px-4 py-3 font-medium text-slate-700">{spec.label}</td>
                         <td className="px-4 py-3 text-slate-600">{spec.value}</td>
                       </tr>
