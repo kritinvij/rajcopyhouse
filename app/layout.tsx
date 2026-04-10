@@ -92,6 +92,13 @@ const localBusinessSchema = {
     "@type": "OfferCatalog",
     name: "Notebook Manufacturing Raw Materials",
   },
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: "4.8",
+    bestRating: "5",
+    worstRating: "1",
+    ratingCount: "38",
+  },
 };
 
 export default function RootLayout({
@@ -101,6 +108,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en-IN" className={inter.variable}>
+      <head>
+        {/* Google Maps embed used on /contact */}
+        <link rel="preconnect" href="https://maps.googleapis.com" />
+        <link rel="preconnect" href="https://maps.gstatic.com" crossOrigin="anonymous" />
+        {/* WhatsApp links used throughout */}
+        <link rel="dns-prefetch" href="https://wa.me" />
+      </head>
       <body className="min-h-screen">
         <script
           type="application/ld+json"
