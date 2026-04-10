@@ -4,56 +4,56 @@ import { getFeaturedProducts, categoryLabels, type ProductCategory } from "@/lib
 import AnimateIn from "@/components/AnimateIn";
 
 const stats = [
-  { value: "40+", label: "Years in Business" },
-  { value: "1 Trillion+", label: "Covers Supplied Across India" },
-  { value: "300+", label: "Cover Designs" },
-  { value: "Pan India", label: "Delivery" },
+  { value: "40+", label: "Years Supplying Manufacturers" },
+  { value: "1 Trillion+", label: "Covers Shipped" },
+  { value: "300+", label: "Ready-Made Cover Designs" },
+  { value: "Pan India", label: "Delivery Coverage" },
 ];
 
 const categories: { category: ProductCategory; label: string; description: string }[] = [
   {
     category: "binding-wires",
     label: "Binding & Stitching Wires",
-    description: "Steel spiral wires and stitching wires for every machine type and production scale.",
+    description: "Spiral and stitching wires compatible with all major machine types. Available in bulk quantities for uninterrupted production runs.",
   },
   {
     category: "covers",
     label: "Notebook Covers",
-    description: "300+ ready-made designs in multiple finish options. Consistent print quality, bulk availability.",
+    description: "300+ in-stock designs across matte, gloss, and specialty finishes. Consistent colour and print quality across large runs.",
   },
   {
     category: "sheets",
     label: "Ledger & Quality Sheets",
-    description: "Black ledger sheets, OHP sheets, PP sheets, and writing paper in all GSM options.",
+    description: "Black ledger, OHP, PP sheets, and writing paper across all GSM grades. Sourced for consistent thickness and ink absorption.",
   },
   {
     category: "packaging",
     label: "Shrink & Packing Materials",
-    description: "High-clarity shrink rolls for clean, professional notebook packaging.",
+    description: "High-clarity shrink rolls sized for standard notebook dimensions. Clean seal, shelf-ready finish.",
   },
   {
     category: "complete-kits",
     label: "Complete Raw Material Kits",
-    description: "Everything for notebook manufacturing in a single order from one trusted supplier.",
+    description: "Wires, covers, sheets, and shrink rolls in a single sourced order. Fewer vendors, one GST invoice, faster procurement.",
   },
 ];
 
 const whyPoints = [
   {
     title: "Premium Quality",
-    body: "Every product is sourced and quality-checked to meet the demands of professional notebook manufacturers.",
+    body: "Materials are checked for consistency before dispatch - same spec batch to batch, so your line doesn't stop for rejects.",
   },
   {
     title: "One-Stop Supplier",
-    body: "From binding wires to shrink rolls, all notebook raw materials available from a single source.",
+    body: "Wires, covers, sheets, shrink rolls - everything under one account, one invoice, one point of contact.",
   },
   {
     title: "All India Delivery",
-    body: "Reliable bulk delivery to manufacturers across every state. Fast dispatch from Chawri Bazaar, Delhi.",
+    body: "Bulk orders dispatched same or next day from Chawri Bazaar. Delivered to manufacturers in every state, including Tier 2 and Tier 3 cities.",
   },
   {
     title: "GST Invoice on Every Order",
-    body: "Full GST-compliant invoices with every shipment. Claim your input tax credit without chasing paperwork.",
+    body: "Every order ships with a full GST-compliant invoice. Input tax credit, no follow-ups needed.",
   },
 ];
 
@@ -70,16 +70,16 @@ export default function HomePage() {
               Trusted by notebook manufacturers across India
             </div>
             <h1 className="mb-3 text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">
-              40 Years. Delhi.<br />
-              <span className="text-teal-400">Every Raw Material</span> You Need.
+              One Supplier.<br />
+              <span className="text-teal-400">Everything Your Factory</span> Needs.
             </h1>
             <p className="mb-1 text-sm italic text-slate-500">
               नोटबुक उद्योग का सम्पूर्ण समाधान
             </p>
             <p className="mt-5 text-lg leading-relaxed text-slate-300">
-              40+ years supplying premium raw materials from Chawri Bazaar, Delhi.
-              Binding wires, notebook covers, ledger sheets, shrink rolls and more,
-              all in one place, delivered across India.
+              Since 1984, Raj Copy House has supplied binding wires, notebook covers,
+              ledger sheets, shrink rolls, and more to manufacturers across India.
+              One order. One invoice. Pan India delivery from Chawri Bazaar, Delhi.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <a
@@ -201,7 +201,7 @@ export default function HomePage() {
           </div>
           <div className="grid gap-5 sm:grid-cols-2">
             {whyPoints.map((point) => (
-              <div key={point.title} className="rounded-2xl bg-slate-800/50 p-6">
+              <div key={point.title} className="rounded-2xl bg-slate-700 p-6">
                 <h3 className="mb-2 font-semibold text-white">{point.title}</h3>
                 <p className="text-sm leading-relaxed text-slate-400">{point.body}</p>
               </div>
@@ -213,8 +213,8 @@ export default function HomePage() {
       {/* CTA Banner */}
       <section className="bg-teal-600 px-4 py-14 sm:px-6">
         <div className="mx-auto max-w-6xl text-center">
-          <h2 className="text-2xl font-bold text-white sm:text-3xl">Ready to Place a Bulk Order?</h2>
-          <p className="mt-2 text-teal-100">Reach us directly on WhatsApp or call for immediate assistance.</p>
+          <h2 className="text-2xl font-bold text-white sm:text-3xl">Place Your Order Today.</h2>
+          <p className="mt-2 text-teal-100">WhatsApp your list or call - we'll confirm availability and pricing within the hour.</p>
           <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <a
               href="https://wa.me/919810035108"

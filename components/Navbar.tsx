@@ -52,7 +52,7 @@ export default function Navbar() {
             href="https://wa.me/919810035108"
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-lg bg-teal-500 px-4 py-2 text-sm font-semibold text-white transition-opacity hover:opacity-90"
+            className="rounded-xl bg-teal-500 px-4 py-2 text-sm font-semibold text-white transition-opacity hover:opacity-90"
           >
             Get a Quote
           </a>
@@ -97,7 +97,7 @@ export default function Navbar() {
               href="https://wa.me/919810035108"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 rounded-lg bg-teal-500 py-2.5 text-sm font-semibold text-white"
+              className="flex items-center justify-center gap-2 rounded-xl bg-teal-500 py-2.5 text-sm font-semibold text-white"
               onClick={() => setMenuOpen(false)}
             >
               WhatsApp for Quote

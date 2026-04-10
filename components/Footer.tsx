@@ -37,7 +37,7 @@ export default function Footer() {
                 <PhoneIcon />
                 +91 98100 35108
               </a>
-              <a href="https://wa.me/919810035108" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm text-green-400 hover:text-green-300">
+              <a href="https://wa.me/919810035108" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm text-teal-400 hover:text-teal-300">
                 <WhatsAppIcon />
                 WhatsApp Us
               </a>

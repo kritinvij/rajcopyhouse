@@ -13,7 +13,7 @@ const values = [
   },
   {
     title: "Same-Day Dispatch",
-    description: "Orders confirmed before 2 PM ship the same day from Chawri Bazaar. Uniform wire diameters and consistent sheet weights so your production line never stops.",
+    description: "Orders confirmed before 2 PM ship the same day from Chawri Bazaar. Consistent wire diameters and verified sheet weights mean your line runs without interruption.",
   },
   {
     title: "GST Invoice on Every Order",
@@ -22,12 +22,12 @@ const values = [
 ];
 
 const productLines = [
-  { name: "Steel Spiral Wires", description: "Premium metallic spiral binding wires for professional notebooks." },
-  { name: "Stitching Steel Wires", description: "High-tensile stitching wires engineered for smooth, consistent machine feed." },
-  { name: "OHP and DHP Sheets", description: "Crystal-clear sheets for notebook front covers and binding applications." },
-  { name: "Shrink Packing Rolls", description: "High-clarity shrink film for clean, professional notebook packaging." },
-  { name: "Notebook Covers", description: "300+ designs in Mazboot, Shine, and Perfect Finishing variants." },
-  { name: "Complete Raw Material Range", description: "Ledger sheets, writing paper, PP sheets, and full manufacturing kits." },
+  { name: "Steel Spiral Wires", description: "Gauge-verified spiral binding wires in multiple diameters - consistent coil-to-coil for uninterrupted machine runs." },
+  { name: "Stitching Steel Wires", description: "High-tensile stitching wires that feed cleanly through stitching heads - no jamming, no rework." },
+  { name: "OHP and DHP Sheets", description: "Optically clear OHP and DHP sheets for front covers - flat, dimensionally stable, consistent in every roll." },
+  { name: "Shrink Packing Rolls", description: "High-clarity shrink film that conforms tightly without bubbling - finished packs look shelf-ready." },
+  { name: "Notebook Covers", description: "300+ designs across Mazboot, Shine, and Perfect Finishing - from school notebooks to premium corporate diaries." },
+  { name: "Complete Raw Material Range", description: "Ledger sheets, writing paper, PP sheets, and bundled kits covering every input from raw paper to finished pack." },
 ];
 
 export default function AboutPage() {
@@ -54,22 +54,21 @@ export default function AboutPage() {
               </h2>
               <div className="flex flex-col gap-4 text-base leading-relaxed text-slate-600">
                 <p>
-                  Raj Copy House was built on a single premise: notebook manufacturers
-                  deserve a reliable, quality-first supplier they can count on. From
-                  our base in Chawri Bazaar, the heart of Delhi&apos;s stationery trade,
-                  we have been delivering that promise for over four decades.
+                  Raj Copy House started in Chawri Bazaar with one conviction: the
+                  manufacturers building India&apos;s notebooks deserve a supplier who
+                  never makes them chase stock or question quality. Four decades later,
+                  nothing about that has changed.
                 </p>
                 <p>
-                  What started as a focused binding wire supplier has grown into a
-                  complete notebook manufacturing solutions house. Today, RCH Total
-                  Solutions carries binding wires, stitching wires, spiral coils,
-                  ready-made notebook covers, ledger sheets, OHP sheets, shrink packing
-                  rolls, writing paper, and complete raw material kits, all under one roof.
+                  What started as a focused binding wire operation now covers every input
+                  a notebook line needs - spiral wires, stitching wires, OHP and DHP
+                  sheets, shrink packing rolls, 300+ cover designs, ledger sheets, writing
+                  paper, and complete kits. One supplier, one call, everything confirmed.
                 </p>
                 <p>
-                  Over one trillion notebook covers sold. Hundreds of manufacturers
-                  supplied across India. That is not a claim - it is a track record built
-                  one order at a time over 40 years.
+                  One trillion notebook covers. Hundreds of manufacturers across India.
+                  The number is staggering, but what it really represents is 40 years of
+                  orders placed, fulfilled, and reordered - because manufacturers came back.
                 </p>
               </div>
             </div>

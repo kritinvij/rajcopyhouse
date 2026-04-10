@@ -11,10 +11,10 @@ export default function ContactPage() {
       <section className="bg-slate-800 px-4 py-16 sm:px-6">
         <div className="mx-auto max-w-6xl">
           <div className="max-w-xl">
-            <h1 className="text-3xl font-bold text-white sm:text-4xl">Get in Touch</h1>
+            <h1 className="text-3xl font-bold text-white sm:text-4xl">Speak to Us Directly</h1>
             <p className="mt-4 text-base leading-relaxed text-slate-300">
-              No contact forms. Reach us directly on call or WhatsApp - we prefer
-              talking to our customers personally.
+              No forms, no queues. Manoj Sachdeva picks up. Call or WhatsApp during
+              business hours and get an answer on the spot.
             </p>
           </div>
         </div>
@@ -27,7 +27,7 @@ export default function ContactPage() {
               <div className="mb-1 text-xs font-semibold uppercase tracking-wider text-slate-400">Call Us</div>
               <div className="mb-2 text-2xl font-bold">+91 98100 35108</div>
               <p className="mb-6 flex-1 text-sm leading-relaxed text-slate-300">
-                Available during business hours. Fastest for urgent requirements.
+                Fastest for urgent requirements. Manoj answers directly - no receptionist, no callback queue.
               </p>
               <a
                 href="tel:+919810035108"
@@ -41,7 +41,7 @@ export default function ContactPage() {
               <div className="mb-1 text-xs font-semibold uppercase tracking-wider text-green-200">WhatsApp</div>
               <div className="mb-2 text-2xl font-bold">+91 98100 35108</div>
               <p className="mb-6 flex-1 text-sm leading-relaxed text-green-100">
-                Send your product list - get a quote within 2 hours during business hours.
+                Send your product list or specs. Most quotes turned around within 2 hours during business hours.
               </p>
               <a
                 href="https://wa.me/919810035108"
