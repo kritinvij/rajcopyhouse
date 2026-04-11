@@ -10,7 +10,6 @@ interface Option {
 function LogoCard({ opt }: { opt: Option }) {
   return (
     <div className="group rounded-2xl border border-slate-800 bg-slate-900 p-8 transition-colors hover:border-teal-800">
-      {/* Three sizes */}
       <div className="mb-8 flex items-end gap-6">
         <div className="w-24 h-24">{opt.svg}</div>
         <div className="flex items-center gap-2">
@@ -53,7 +52,7 @@ export default function LogoPreview() {
     {
       id: "B",
       name: "Coil Spring",
-      description: "A binding wire coil viewed side-on - the actual shape of the product.",
+      description: "A binding wire coil viewed side-on.",
       svg: (
         <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
           <rect width="48" height="48" rx="11" fill="#0d9488"/>
@@ -67,7 +66,7 @@ export default function LogoPreview() {
     {
       id: "C",
       name: "Geometric R",
-      description: "A pure-geometry R built from rectangles. The leg turns into a diagonal wire accent.",
+      description: "A pure-geometry R. The leg turns into a diagonal wire accent.",
       svg: (
         <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
           <rect width="48" height="48" rx="11" fill="#0d9488"/>
@@ -83,7 +82,7 @@ export default function LogoPreview() {
     {
       id: "D",
       name: "Clean Stitch",
-      description: "Three stacked sheets with stitching dots — references both stitching wire and layered paper.",
+      description: "Three stacked sheets with stitching wire dots.",
       svg: (
         <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
           <rect width="48" height="48" rx="11" fill="#0d9488"/>
@@ -99,75 +98,87 @@ export default function LogoPreview() {
     },
   ];
 
-  const newOptions: Option[] = [
+  const fresh: Option[] = [
     {
       id: "E",
-      name: "Concentric",
-      description: "Three concentric rings — the cross-section of a wire coil end-on. Pure geometry. Reads as a target, a bull's-eye, a coil. Works at any size.",
+      name: "Coil Ring",
+      description: "One loop of spiral binding wire in perspective. Front arc is bold; back arc is translucent — the exact shape buyers see when they hold the wire.",
       svg: (
         <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
           <rect width="48" height="48" rx="11" fill="#0d9488"/>
-          <circle cx="24" cy="24" r="15" fill="none" stroke="white" strokeWidth="3.5"/>
-          <circle cx="24" cy="24" r="9" fill="none" stroke="white" strokeWidth="3"/>
-          <circle cx="24" cy="24" r="3.5" fill="none" stroke="white" strokeWidth="2.5"/>
+          {/* Back of ring - faint */}
+          <path d="M9,24 A16,11 0 0 1 39,24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" opacity="0.22"/>
+          {/* Front of ring - bold */}
+          <path d="M9,24 A16,11 0 0 0 39,24" fill="none" stroke="white" strokeWidth="5" strokeLinecap="round"/>
+          {/* Wire tails - the helix continues above and below */}
+          <line x1="9" y1="24" x2="4" y2="28" stroke="white" strokeWidth="4" strokeLinecap="round" opacity="0.45"/>
+          <line x1="39" y1="24" x2="44" y2="20" stroke="white" strokeWidth="4" strokeLinecap="round" opacity="0.45"/>
         </svg>
       ),
     },
     {
       id: "F",
-      name: "Wire R",
-      description: "The letter R drawn as a single continuous wire stroke — no fills, no rectangles. Clean monogram. The arch and leg are one unbroken path.",
+      name: "Spiral Notebook",
+      description: "A spiral notebook from the spine — pages as a solid block, three coil rings looping out of the left edge. Product in use, distilled to its simplest form.",
       svg: (
         <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
           <rect width="48" height="48" rx="11" fill="#0d9488"/>
-          <path
-            d="M14,37 L14,11 C22,11 33,11 33,18.5 C33,26 22,26 14,26 M20,26 L34,37"
-            fill="none"
-            stroke="white"
-            strokeWidth="4.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
+          {/* Pages block */}
+          <rect x="18" y="9" width="22" height="30" rx="2" fill="white" opacity="0.5"/>
+          {/* Coil rings arcing out from spine */}
+          <path d="M18,11 C10,11 10,19 18,19" fill="none" stroke="white" strokeWidth="3.5" strokeLinecap="round"/>
+          <path d="M18,19 C10,19 10,27 18,27" fill="none" stroke="white" strokeWidth="3.5" strokeLinecap="round"/>
+          <path d="M18,27 C10,27 10,35 18,35" fill="none" stroke="white" strokeWidth="3.5" strokeLinecap="round"/>
         </svg>
       ),
     },
     {
       id: "G",
-      name: "Fan Pages",
-      description: "Four horizontal bars flush-right, each indented further left — the front edge of fanned notebook pages. Ultra minimal. No literal binding reference.",
+      name: "Punch Holes",
+      description: "Pages as a solid white block — three binding holes punched through the spine as negative space. Shows the exact action of the wire: threading through paper.",
       svg: (
         <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
           <rect width="48" height="48" rx="11" fill="#0d9488"/>
-          <rect x="9"  y="10" width="30" height="5.5" rx="2" fill="white"/>
-          <rect x="12" y="18" width="27" height="5.5" rx="2" fill="white" opacity="0.82"/>
-          <rect x="15" y="26" width="24" height="5.5" rx="2" fill="white" opacity="0.60"/>
-          <rect x="18" y="34" width="21" height="5.5" rx="2" fill="white" opacity="0.38"/>
+          {/* Pages */}
+          <rect x="15" y="9" width="25" height="30" rx="2" fill="white"/>
+          {/* Punch holes: teal circles drawn on top of white pages */}
+          <circle cx="15" cy="15" r="4.5" fill="#0d9488"/>
+          <circle cx="15" cy="24" r="4.5" fill="#0d9488"/>
+          <circle cx="15" cy="33" r="4.5" fill="#0d9488"/>
         </svg>
       ),
     },
     {
       id: "H",
-      name: "Chain Rings",
-      description: "Three binding rings in a row, perfectly tangent — a chain. Instantly reads as binding hardware. Bold, symmetrical, industrial.",
+      name: "Wire Helix",
+      description: "The spiral binding wire shown as a helix — one full period of the coil, large and clean. The whole product in a single bold stroke.",
       svg: (
         <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
           <rect width="48" height="48" rx="11" fill="#0d9488"/>
-          <circle cx="10" cy="24" r="5.5" fill="none" stroke="white" strokeWidth="3"/>
-          <circle cx="24" cy="24" r="5.5" fill="none" stroke="white" strokeWidth="3"/>
-          <circle cx="38" cy="24" r="5.5" fill="none" stroke="white" strokeWidth="3"/>
+          {/* One full period of the helix wave */}
+          <path
+            d="M4,24 C4,12 24,12 24,24 C24,36 44,36 44,24"
+            fill="none"
+            stroke="white"
+            strokeWidth="5"
+            strokeLinecap="round"
+          />
         </svg>
       ),
     },
     {
       id: "I",
-      name: "Chevrons",
-      description: "Three right-pointing chevrons with a depth fade — abstract, dynamic, forward motion. Reads as precision, layers, momentum. Modern industrial mark.",
+      name: "Wire Spool",
+      description: "A roll of binding wire seen end-on: thick outer ring is the wound wire, inner ring is the spool core. Recognisable to every buyer who has received a shipment.",
       svg: (
         <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
           <rect width="48" height="48" rx="11" fill="#0d9488"/>
-          <path d="M8,16 L19,24 L8,32"  fill="none" stroke="white" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" opacity="0.32"/>
-          <path d="M17,16 L28,24 L17,32" fill="none" stroke="white" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" opacity="0.65"/>
-          <path d="M26,16 L37,24 L26,32" fill="none" stroke="white" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round"/>
+          {/* Wound wire - thick outer ring */}
+          <circle cx="24" cy="24" r="17" fill="none" stroke="white" strokeWidth="5"/>
+          {/* Spool core */}
+          <circle cx="24" cy="24" r="8" fill="none" stroke="white" strokeWidth="2.5" opacity="0.7"/>
+          {/* Axle */}
+          <circle cx="24" cy="24" r="2.5" fill="white" opacity="0.55"/>
         </svg>
       ),
     },
@@ -179,7 +190,7 @@ export default function LogoPreview() {
         <div className="mb-12">
           <p className="mb-1 text-xs font-semibold uppercase tracking-widest text-teal-500">Logo Options</p>
           <h1 className="text-3xl font-bold text-white">Raj Copy House</h1>
-          <p className="mt-2 text-slate-400">Nine directions — pick one and I&apos;ll wire it up everywhere.</p>
+          <p className="mt-2 text-slate-400">Nine options — original set plus five that show exactly what you sell.</p>
         </div>
 
         <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-slate-500">Original (A–D)</p>
@@ -189,15 +200,15 @@ export default function LogoPreview() {
           ))}
         </div>
 
-        <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-slate-500">New (E–I)</p>
+        <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-slate-500">Product-Focused (E–I)</p>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {newOptions.map((opt) => (
+          {fresh.map((opt) => (
             <LogoCard key={opt.id} opt={opt} />
           ))}
         </div>
 
         <p className="mt-10 text-center text-xs text-slate-600">
-          Tell me which option (A–I) you prefer and I&apos;ll apply it everywhere.
+          Pick A–I and I&apos;ll apply it everywhere — navbar, favicon, og:image.
         </p>
       </div>
     </div>
